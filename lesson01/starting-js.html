@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting with JavaScript</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* Our CSS Rules */
+    </style>
+
+    <!-- Internal JavaScript -->
+    <script>
+        /*
+            My Comments in JS:
+            My JavaScript Code
+            using script element
+            placed inside the header
+        */
+
+        // My JavaScript Code:
+
+        /*
+        We can use the console window in any browser to write our JS code:
+ 
+        below are samples of what we have written in
+        the console window:
+    	
+        Notes: 
+        - To open the console window, we can use the hotkey F12 in the browser window
+        - Notice that F12 is not the hotkey for ALL the browser
+        - We can use our normal way: make right click with any browser then inspect then console
+        - We can clear the console window (will not delete the history) by just typing this command [by running this function]:
+        clear()
+        */
+
+
+        // Double front slashes can be used for a single line of comments in JS
+        // here is another line of comment
+        // here is also another line of comment
+
+        // First function to print in JS console.log()
+        // In JS everything is an object
+        // object can have properties (specs in our life) and methods[functions] (actions in our life)
+        // object-name.property-name or object-name.method-name()
+        // Our first object to learn in JS is console
+        // this object named "console" has a method (function) named log()
+        // Like CSS any line in JS ends with ;
+        // NOTE: the ; is optional in JS, yes it's valid to ignore, but NOT recommended 
+        console.log(); // This will print/output nothing
+
+        // below are examples from the code we wrote in the console
+
+        // Using Numeric Values:
+        console.log(100);
+        console.log(100 + 200);
+        console.log(2 * 5);
+
+        // Using Text Values (String Data Type):
+        console.log("JavaScript");
+        console.log('Python');
+
+        // The code below has this error: log is not defined
+        // log('testin');
+
+        // Find/output the total of two numbers 90 and 80:
+        console.log(90 + 80);
+
+        // Find/output the total of any two numbers:
+        var number1 = 20000;
+        var number2 = 19000;
+
+        // Let's try first to print them to double check
+        console.log("Number1 and Number2 Values:");
+        console.log(number1); // 95
+        // console.log(Number2); // Number2 is not defined
+        console.log(number2); // 98
+
+        // output the total directly:
+        console.log("The total of number1 and number2:")
+        console.log(number1 + number2);
+
+        // Or we can assign the result of the total into another variable:
+        var total = number1 + number2;
+        console.log(total);
+
+        // We can reuse the same variable again:
+        // Let's try to take the average:
+
+        console.log("The average of number1 and number2:")
+        // First Solution:
+        var average1 = (number1 + number2) / 2;
+        console.log(average1);
+
+        // Second Solution:
+        var average2 = total / 2;
+        console.log(average2);
+
+        // Third Solution:
+        console.log(total / 2);
+
+        // document.write(average2); Just for fun :-) => for later lessons
+
+        // More Examples about working with varaiables:
+        // String, numbers, boolean
+        var college = "Canadian Business College";
+        var course = "JavaScript";
+        var program = "FSSD";
+        var campus = "Toronto";
+        var studensNumber = 5;
+        var modulesNumber = 12;
+        var isValid = false;
+        var isLegal = true;
+
+        // We can also use the 'let' keywords:
+        let age=83;
+        let province ="Ontario";
+    </script>
+</head>
+
+<body>
+    <h1>My Heading 1</h1>
+    <H2>My Heading 2</H2>
+    <!-- Internal JavaScript -->
+    <script>
+
+    </script>
+</body>
+
+</html>
