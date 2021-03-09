@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with numbers part1</title>
+</head>
+
+<body>
+
+    <script>
+        var value1 = 5;
+        var value2 = 10;
+        // alert(value1);
+        // alert(value2);
+        /*
+        if you find using alert() method (function)
+        is annoying, we can output our resultس into the console window.
+        In this case the output will not be pop-up in the 
+        browser window, it will just be written inside the 
+        console window
+
+        anyName() => a function
+        objectName.anyName() => a method (function)
+        */
+        console.log(value1);
+        console.log(value2);
+
+        // console object has many propeties and methods:
+        // Just output the value of console property "memory"
+        console.log(console.memory);
+
+        // Using other way
+        var cm = console.memory;
+        console.log(cm);
+
+        // clear(); // Error: clear is not defined
+        // alert("Wait! Your console will be cleared. are you sure?")
+        // console.clear();
+
+        /*
+        alert() is a function
+        but it's also a method of the browser "window"!!!
+        the browser window object is "window"
+        window has these methods:
+        - window.alert()
+        - window.console.log()
+        */
+
+        // window.alert("I am here again!");
+        // window.console.log("Hi there");
+
+        // adding 1 to this var value1:
+        value1 = value1 + 1; // value1 = 5 + 1
+
+        // adding 1 to this var value2:
+        value2 = value2 + 1; // value2 = 10 + 1
+
+        console.log(value1); // 6
+        console.log(value2); // 11
+
+        var myNumber;
+        myNumber = myNumber + 7;
+
+        // myNumber = undefined + 7;
+        console.log(myNumber); // NaN => Not a Number
+
+        // ****************** Unary Operators *********************
+        let a = 5;
+        // adding 1 to this var a
+        // a = a + 1;
+
+        a += 1;
+
+        // Or we can use 
+        // a++;
+        console.log(a); // 6
+
+        let b = 10;
+        // subtract 1 from this var b
+        // b = b - 1;
+        b--; // the same as we write a -= 1;
+        console.log(b); // 9
+
+        /*
+            with adding 1 or subtracting 1 from any variable:
+            variableName++;
+            variableName--;
+
+            OR:
+            variableName +=1;
+            variableName -=1;
+
+            for adding 2 ?!?!?!?!?
+            variableName +=2;
+        */
+
+        var myNumber = 100;
+        // adding 1 or subtract 1 => myNumber++ or myNumber--
+
+        // Adding 2 to myNumber
+        // solution1:
+        // myNumber = myNumber + 2;
+
+        // solution2:
+        myNumber += 2; // the same as we write: myNumber = myNumber + 2;
+        console.log(myNumber); // 102
+
+        var mySecondValue = 80;
+        // subtract 20 from the value of this var mySecondValue
+        mySecondValue -= 20; // mySecondValue = mySecondValue - 20;
+        console.log(mySecondValue); // 60
+
+
+        /*
+        Two Types of Numbers:
+        Integer [Int] (Whole Number): 75
+        Float (Fractional): 76.56
+        */
+
+        /*
+        What if you try to divide a number by zero? 
+        Computers don't like that! 
+        JavaScript will return a number type called Infinity. 
+        What if you divide negative numbers by zero? You will get -Infinity.
+        */
+        /* You can't divide by zero */
+        console.log(1 / 0); // Infinity
+
+        /* No, not even negative numbers should
+      be divided by zero */
+        console.log(-1 / 0); // -Infinity
+
+        // 10000000000 => has ten zeros
+        console.log(10000000000);
+        // It is a special notation for very large and very small numbers
+        // With letter e along with a value for a number
+
+        // (1 followed by 10 zeros) 10000000000 => 1e10
+        // (1 followed by 9 zeros) 1000000000 => 1e9
+
+        // output 1 followed by 10 zeros:
+        console.log(1e10);
+
+        /* 4 followed by ten zeros */
+        console.log(4e10);
+
+        /* 1 with six leading zeros */
+        console.log(1e-6);
+
+        // 7 with 2 leading zeros => 0.07
+        console.log(7e-2); // 0.07
+
+        let num1= 1e5;
+        let num2= 2e5;
+        let addition = num1 + num2;
+        console.log(addition); // 300000
+    </script>
+</body>
+
+</html>

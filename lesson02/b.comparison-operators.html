@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Operators</title>
+</head>
+
+<body>
+    <script>
+        // Equal to: ==
+        let num1 = 100;
+        let num2 = 100;
+        console.log(num1 == num2); // true
+
+        num1 = 200;
+        console.log(num1 == num2); // false
+
+        num1 = 100; // Data type = Number (integer)
+        num2 = "100"; // Data type = String (text)
+        console.log(num1 == num2); // true
+
+        // Equal to (with comparison of data type): ===
+        console.log(num1 === num2); // false
+
+        num2 = 300;
+        // Greater than: >
+        // Less than: <
+        console.log(num1 > num2); // false => num1 is 100 and num2 is 300
+        console.log(num1 < num2); // true => num1 is 100 and num2 is 300
+
+        // Greater than or equal to: >=
+        // Less than or equal to: <=
+        console.log(num1 >= num2); // false => num1 is 100 and num2 is 300
+
+        // Not equal to: !=
+        console.log(num1 != num2); // true
+
+        // Not equal to (with comparison of data type): !==
+    </script>
+</body>
+
+</html>
