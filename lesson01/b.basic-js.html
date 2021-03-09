@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Basics</title>
+    <style>
+
+    </style>
+
+    <!-- To write JS inside HTML file we use script element to write JavaScript -->
+
+    <!-- 
+    Note: In the old days (before HTML 5), we used to add the attribute "type="text/javascript" 
+    to specify that the scripting language is JavaScript, 
+    but with the HTML5 document no need to add this attribute.
+	
+    We used to have another scripting language from Microsoft
+    named "Visual Basic Script or VB Script" 
+    but this language "VBS" was working only on Microsoft Internet Explorer Browser 
+    so it became obsolete sooner
+
+    <script type="text/JavaScript">
+    </script>
+
+    The only 2 ways to run/execute a JS code:
+    1- Writing our code inside our HTML file in between the script element
+    - either inside the <head> part
+    - either inside the <body> part
+    Or
+    2- Write our code in separate (external) js file and attach/link this js file 
+    to our current HTML file
+    -->
+    <script>
+        alert("I am your text inside the head and the body")
+    </script>
+</head>
+
+<body>
+ <h1 id=main class=major>Test Heading</h1>
+     <!-- We should place our script either inside the head or the body in the html file -->
+     <script>
+        // it has to be alert()
+        // Alert("another test"); // error: Alert is not defined
+           /*
+               To check our JavaScript error we need to open the console window
+           */
+           alert("Hello again from the body element");
+           
+           /*
+           Although adding ";" at the end is optional in JS
+           but we should add ";" always for more clarification
+           */
+           alert(5 + 3); // 8
+           alert(4 / 2); // 2
+           alert(7 * 2); // 14
+           alert(5 - 3); // 2
+
+           /*
+        We used alert() => it's a built-in JS function (it comes with JS)
+
+        name() ==> function or method
+		functionName() 
+		methodName() 
+		
+		above and below we are using a JavaScript built-in function!!!
+		built-in ==> native to JavaScript language itself
+		
+		example:
+		alert() => is native/built-in function/method
+		each function has to have "(" and ")"
+		whether its empty or not we have to add them
+
+		Please be advised that JavaScript is Case Sensitive
+		so alert() is not like Alert()
+		and it's not like ALERT()
+		*/
+       </script>
+</body>
+<!-- 
+    Placing my script outside the body element (our outside the head)
+    will generate this error in W3 Validator:
+    Error: Stray start tag script
+-->
+<script>
+    alert("I am your text from the alert outside the body element!")
+</script>
+</html>

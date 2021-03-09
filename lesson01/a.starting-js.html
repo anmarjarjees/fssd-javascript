@@ -115,17 +115,97 @@
         var isLegal = true;
 
         // We can also use the 'let' keywords:
-        let age=83;
-        let province ="Ontario";
+        let age = 83;
+        let province = "Ontario";
+
+        // More Examples:
+        /*
+        PEDMAS = BEDMAS 
+        P/B = ( )
+        E = the power of 5 to the power of 2: 5x5=25
+        D = /
+        M = *
+        A = +
+        S = -
+        */
+
+        /*
+        Built-in Function: is function that comes with the language itself
+        Like in MS Excel, we have sum and average functions => we just need to know how to use them
+
+        In JS:
+        console.log() ==> using the function log() for "console object" to output anything to the console 
+
+        another function named alert() belongs to the browser window ==> open a pop-up window inside "the browser window"
+
+        "window" is a global object in JS
+
+        Example:
+        window.alert("Any Text Value")
+        window.alert(any numeric value)
+        */
+
+        // below are examples from the code we wrote in the console
+        window.alert("I am learning JavaScript");
+        window.alert('testing        JS                  Spaces in alert     text  contents');
+        window.alert(100);
+
+
+        /*
+        We can skip/ignore the object name "window"
+        alert()
+
+        Please be advised that JavaScript is Case Sensitive
+        so alert() is not like Alert()
+        and it's not like ALERT()
+        */
+        alert("One more example");
+
+        // Using alert() to find the average of number1 and number2
+        alert(number1 + number2 /2); // Wrong Answer
+        alert((number1 + number2) /2);  // The right answer based on Math Rules
+
+        /*
+      notice below we are mixing " and '
+
+      The idea: the whole sentence either:
+      - starts and ends with " and use ' in between
+      - starts and ends with ' and use " in between
+
+      Example: Martin's car is Honda, John's car is Camry
+      */
+
+        // using alert() or console.log():
+        alert("Martin's car is Honda, John's car is Camry");
+        console.log('One of the most important language is "JavaScript"');
+
+        // Martin's car is Honda, he likes SUV types of cars.
+        console.log("Martin's car is Honda, he likes SUV types of cars.")
+
+        /*
+          What if we have a mixed sentence:
+          Martin's car is Honda, he likes "SUV" type of cars.
+  
+          We can use the escape character: \ 
+        */
+        console.log('Martin\'s car is Honda, he likes "SUV" types of cars');
+        // OR:
+        console.log("Martin's car is Honda, he likes \"SUV\" types of cars");
+
+
+
     </script>
 </head>
 
 <body>
     <h1>My Heading 1</h1>
     <H2>My Heading 2</H2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores, aperiam, repellat eveniet ea illo dolor
+        reiciendis provident corporis ad veritatis in culpa! Perferendis minima explicabo velit iste delectus. Nulla?
+    </p>
     <!-- Internal JavaScript -->
     <script>
-
+        window.alert("I am the last alert after all your HTML elements!");
     </script>
 </body>
 

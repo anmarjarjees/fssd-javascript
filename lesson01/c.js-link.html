@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External JS</title>
+
+    <!-- Internal JS -->
+    <script>
+        // remember that alert() is the method/function of the global object "window"
+        alert("Hello from the head section");
+    </script>
+</head>
+
+<body>
+    <h2>Linking to External JS file</h2>
+
+    <!-- 
+        The same idea as we linking to BS JS file
+     -->
+    <script src="script.js">
+    </script>
+    <!-- We still use the < script>
+        </script> tags to load our external JavaScript files,
+        but this time we need to supply the src attribute and the path to our file,
+        or its URL.
+        When you are creating your own JavaScript files,
+        then it's good practice to put them in a folder or directory.
+        Generally, we put them in a folder called js or scripts.
+        -->
+
+</body>
+
+</html>
