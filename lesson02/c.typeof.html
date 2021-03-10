@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typeof</title>
+</head>
+
+<body>
+    <script>
+        let name = "Alex";
+        let age = 24;
+        let avg = 85.73;  
+        var isValid = true;     
+        
+        // let name = "Martin";
+        // Error: Identifier 'name' has already been declared
+        name = "Martin";
+
+        // typeof with or without brackets works
+        let nameDataType = typeof (name);
+        console.log(nameDataType); // string
+
+        console.log(typeof (age)); // number
+        console.log(typeof (avg)); // number
+        console.log(isValid); // true
+        console.log(typeof (isValid)); // boolean
+
+        // Just for quick Demo:
+        // document is the object that refers to this HTML document
+        // title is the propertiy of the object "document" that refers the title of this HTML documents
+        console.log(document.title);
+        console.log(document);
+    </script>
+
+
+    <!-- 
+        The same code in Python:
+        name="Alex"
+        age=24
+        avg=85.73
+        is_valid=True;
+
+        print(name)
+        print(age)
+        print(is_valid)
+        The output:
+        Alex
+        24
+        True
+
+        type(name)
+        
+        
+        print(type(name))
+        print(type(age))
+        print(type(avg))
+        print(type(is_valid))
+        
+        The output:
+        <class 'str'>
+        <class 'int'>
+        <class 'float'>
+        <class 'bool'>
+
+        print() # Empty ==> No Parameters
+     -->
+</body>
+
+</html>

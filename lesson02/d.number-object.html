@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers Methods and Objects</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Object:
+        - char/spec (in our life) => property (in programming languages)
+        - action (in our life) => method() (in programming languages)
+
+        Class: is the blue-print of an object
+        */
+
+        /*
+        Pure OOP Languages: (to be explained with more details)
+        
+        // Class is the blueprint of objects
+        class ClassName {
+        properties:
+        prop1;
+        prop2;
+        prop3;
+
+        method:
+        method1;
+        method;
+        }
+
+        // creating a new object out of the class
+        // object is an instance of a class:
+        object1 = new ClassName();
+        object2 = new ClassName();
+
+        // Add '.', method name & argument in parenthesis after object:
+        // object.nameOfTheMethod(argument); 
+        */
+
+        var value1 = "100"; // the value is 100 but the data type is string
+        var value2 = "200"; // the value is 200 but the data type is string
+
+        // and value3 is numeric data type:
+        var value3 = 300; // the value is 300 and the data type is number
+
+        // Task: Find the total of value1 and value2
+        // Assign the total to another variable named total1 
+        // output the total:
+
+        /*
+       The plus sign (+) can be used for:
+       - addition with numbers
+       - concatenating (combine) with string 
+        */
+        var total1 = value1 + value2; // "100" + "200"
+        console.log(total1); // "100200" but it was 100200 !!!!!
+
+        var number1 = 100;
+        var number2 = 200;
+        var numTotal = number1 + number2; // 100 + 200
+        console.log(numTotal); // 300
+
+        var part1 = "Java";
+        var part2 = "Script";
+        var fullPart = part1 + part2; // "Java" + "Script"
+        console.log(fullPart); // "JavaScript"
+
+        var first = "Alex";
+        var last = " Chow";
+        var fullName = first + last;
+        console.log(fullName); // Alex Chow
+
+
+        /*
+             We have two built-in functions:
+             ------------------------------
+             - parseInt() takes a numeric value as string data type and returns the same value as integer data type
+             - parseFloat() takes a numeric value as strging data type and returns the same value as floating-point number
+
+             Implicit => When JS converts string to numbers or vice versa
+             Explicit => When the programmer uses a function/method to do conversion 
+
+             Another way is using Number:
+             When used as a function, Number(value) converts a string or other value to the Number type. If the value can't be converted, it returns NaN.
+             The link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+        */
+        var total2 = parseInt(value1) + parseInt(value2); // parseInt("100") => 100 + praseInt("200") => 200
+        console.log(total2); // 300
+
+        value1 = "10.72"; // a number but inside " => string
+        value2 = "22.73"
+
+        var total3 = parseInt(value1) + parseInt(value2);
+        // total3 = 10 + 22 => 32
+        console.log(total3); // 32 Wrong!!!!
+
+        total3 = parseFloat(value1) + parseFloat(value2);
+        console.log(total3); // 33.49
+
+        /*
+        the parseInt() and parseFloat() are methods (functions) for the JS class/object named "Number"
+
+        Number.parseInt()
+        Number.parseFloat()
+
+        Since we can omit the "Number" so why should we add it?
+        */
+        total4 = Number.parseFloat(value1) + Number.parseFloat(value2);
+        console.log(total4); // 33.49
+
+        /*
+        Math Object: is a built-in object that has properties and methods for mathematical constants and functions.
+        Math: Methods
+            - Math.floor rounds down the number. 2.1 will be 2
+            - Math.ceil rounds up the number. 1.1 will be 2
+            - Math.round rounds to the nearest integer.
+              It means 1.4 will be 1, but 1.6 will be 2
+            - Math.trunc removes the decimal part of the number. 4.5 will be 4
+            - Math.sqrt returns the square root of the number
+            - Math.cbrt returns the cube root of the number
+        */
+
+        // Let's try using round method (like excel)
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+        var num1 = 2.4;
+        num1 = Math.round(num1); // 2
+
+        var num2 = 3.5;
+        num2 = Math.round(num2);  // 4
+
+        var num3 = 5.7;
+        num3 = Math.round(num3); // 6
+
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+
+        // we can use comma to output multiple variable at the same time:
+        console.log(num1, num2, num3); // 2 4 6
+
+        // Let's take another example of a Math method named max()
+        var exam1 = 90;
+        var exam2 = 82;
+        var exam3 = 93;
+        var maximum = Math.max(exam1, exam2, exam3); // find the maximum: 90 and 82 and 93
+        console.log(maximum); // 93
+
+        // the same for Math.min()
+
+        // Let's take one example a Math property: Math.PI
+        // to find the area of any circle: area = PI value * radius*radius 
+        var radius = 5;
+        // A=π r2
+        // find the area of this circle with radius of value 5:
+        var area = Math.PI * radius * radius;
+        // area = Math.round(area);
+        // In JavaScript we can nest function (putting a function inside a function)
+        console.log(Math.round(area)); // Notice round() method will ignore all the decimal points
+
+        // JavaScript toFixed() Method  => for any number object (variable)
+        var num = 78.67578;
+        num = num.toFixed(2); // will round the number to 2 decimal points:
+        console.log(num); // 78.68
+
+        // using a built-in function named typeof() to return the data type
+        console.log(typeof (num)); // string
+
+        // using a built-in function named typeof() to return the data type
+        var test = 78.67578;
+        console.log(typeof (test)); // number
+
+        test = test.toFixed(2); // toFixed(): returns a string data type
+        console.log(typeof (test)); // string
+
+        // Let' find the average of the 3 exams
+        var avg = (exam1 + exam2 + exam3) / 3;
+        console.log(avg); // 88.33333
+        console.log(typeof (avg)); // number
+
+        // Output:
+        // The average of the 3 exams is: 88.33333
+        console.log("The average of the 3 exams is:");
+        console.log(avg);
+
+        // can we put them in one line?
+        // we can use the + sign for concatenating strings and numbers togehter!
+        console.log("The average of the 3 exams is: " + avg);
+        // Or using comas
+        console.log("The average of the 3 exams is: ", avg);
+
+        // The same with alert():
+        alert("The average of the 3 exams is: " + avg);
+        // Or using comas
+        alert("The average of the 3 exams is: ", avg); // this will NOT output the avg value   
+    </script>
+</body>
+
+</html>
