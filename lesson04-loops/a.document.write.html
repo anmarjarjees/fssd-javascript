@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document.Write Method</title>
+
+    <!-- Internal Styles -->
+    <style>
+        /* 
+        New rule for a custom class named vip
+        */
+        .vip {
+            color: red;
+            font-weight: bold;
+            background-color: lightyellow;
+        }
+
+        /* another custom class named extra */
+        .extra {
+            color: yellow;
+            /* this will override the color:red */
+            background-color: darkblue;
+        }
+
+        /* our last custom class named highlight */
+        .highlight {
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+            background-color: brown;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*
+          To recap:
+          alert() is method of the browser window object:
+          window.alert() or just alert() => a popup window
+  
+          the console object:
+          its method log() => console.log() => to output inside the console window
+  
+          The HTML Document is also an object
+          we know that object can have properties and methods
+  
+          we have an object called "document":
+          document: refer to your html file (document)
+          
+          This document object has properties and methods (like any objects):
+          Examples:
+          title: is a the property of document object => document.tile
+          write(): is the built-in method of document object => document.write()
+      
+          we will use another method/function that belongs to the "document object" called "write()"
+          - document.write("Your text goes here");
+      
+          Because document.write will write into our html page so we can use this method to write html elements!!!
+        */
+
+        // testing the property named "title"
+        console.log(document.title); // Document.Write Method
+
+        document.write("Here is my first paragarph! I am just a simple text :-");
+
+        // We can insert HTML tags also:
+        document.write("<h2>Hello JavaScript!</h2>");
+        document.write("<p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document.</p>");
+
+        document.write("<p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document.</p>");
+
+        document.write('<p>Learning <span class="vip">JavaScript</span> is very important for the <span class= "extra"> front - end development</span ></p>');
+
+        // We can also use the concatenating operator + 
+        var subject = "JavaScript";
+        document.write("<p>We are learning " + subject + "</p>");
+    </script>
+    <!-- To recap with HTML and CSS -->
+    <p>Learning <span class="vip">JavaScript</span> is very important
+        for the <span class="extra">front-end development</span></p>
+</body>
+
+</html>

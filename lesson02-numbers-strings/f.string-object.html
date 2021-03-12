@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Object</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Use name of the method on the string object. 
+            Add string methods after the string object: string.methodName();
+
+            Use name of the property on the string object. 
+            Add string property after the string object: string.propertyName;
+        */
+        let myFavSubject = "JavaScript";
+        // myFavSubject var has text value => it's string => it's an object => string object
+
+        // length property will return the length of this string
+        // the returned value:
+        // output directly or save into variable
+        console.log(myFavSubject.length); // 10
+
+        var numberOfChar = myFavSubject.length;
+        console.log("The number of characters in the word \"JavaScript\" is: " + numberOfChar);
+
+        /*
+        Each char in a string has a unique index
+        index starts with 0
+        to find the index of any char we can use this string method: indexOf()
+
+        J	A	V	A	S	C	R	I	P	T
+        0	1	2	3	4	5	6	7	8	9
+
+        the indexOf() method returns the index value
+        */
+
+        // myFavSubject => JavaScript 
+        console.log(myFavSubject.indexOf("A")); // -1
+
+        // finding the index of "a" in "JavaScript"
+        // this method will return the index of the first letter "a"
+        console.log(myFavSubject.indexOf("a")); // 1
+
+        // finding the index of "S" in "JavaScript"
+        console.log(myFavSubject.indexOf("S")); // 4
+
+        // console.log("the index of first letter 'A' is: "+ )
+
+        let myString = "I am another nice string in this file!";
+
+        // convert the text content of this varaible "myString" to be all in lower case:
+
+        // the method by itself will not output anything
+        // it return the same string all in lower case 
+        myString.toLowerCase(); // nothing will appear in my browser
+
+        console.log(myString.toLowerCase());
+
+        let lowerCaseString = myString.toLowerCase();
+        let upperCaseString = myString.toUpperCase();
+        console.log(lowerCaseString);
+        console.log(lowerCaseString);
+
+        /*
+         Ask the user to:
+         - input: a for apple
+         - input: o for orange
+         - input: t for tomato
+ 
+         the user might enter: "A" or "a"
+         but we can use JS methods to convert its case to upper or lower
+         */
+    </script>
+</body>
+
+</html>

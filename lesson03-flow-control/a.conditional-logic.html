@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Logic</title>
+</head>
+
+<body>
+    <script>
+        /*
+        In JavaScript everything is considered truthy (true) except for:
+        - false
+        - undefined
+        - null
+        - Empty string: ""
+        - Not a number: NaN
+        - Zero: 0
+
+        To check the truthiness or the falseness (true of false):
+        - In JavaScript: Boolean(value)
+        - In Python: bool(value) => www.pythontutor.com
+        http://www.pythontutor.com/visualize.html#mode=edit
+
+        JavaScript:
+        By using the Boolean function: Determines if a value is true or false
+        In a programming language, any value can ultimately be evaluated to true or false. 
+        
+        For example: 
+        if a number is 0, null or an empty string, then it will be false.
+        */
+        let isValid = false;
+        // to create undefined variable
+        var myVar1;
+        // Or:
+        let myVar2 = undefined;
+        let emptyStr = ""; // empty nothing in between ""
+        let mySpace = " "; // not emtpy string => one sapce => space is a charactor
+        let fruit = "apple"; // not empty string => apple
+        let number = 0;
+
+        // In JavaScript: Boolean(varaibleName or value) => returns either true or false
+        // Remember that Boolean() doesn't output anything!
+        console.log(Boolean(isValid)); // f
+        console.log(Boolean(myVar1)); // f
+        console.log(Boolean(myVar2)); // f
+        console.log(Boolean(emptyStr)); // f
+        console.log(Boolean(mySpace)); // t
+        console.log(Boolean(fruit)); // true
+        console.log(Boolean(number)); // false
+
+        // Or we can just directly place the values:
+        console.log(Boolean("apple")); // true
+        console.log(Boolean(0)); // false
+        console.log(Boolean(null)); // false
+        console.log(Boolean("")); // false
+        console.log(Boolean(" ")); // true
+        console.log(Boolean(-5)); // true
+
+
+        console.log("* if/else condition ************************************");
+        /*
+        We have if condition in our life:
+        if (it's raining) then I will take my umbrella
+        else (otherwise) I will wear my sun glasses        
+        
+        With if condition we can use the following operator symbols:
+        if condition syntax:
+
+            if (our condition) {
+                // our code if the condition is true
+            } else {
+                // our code if the condition is false
+            }
+
+            if (condition1) { 
+                code that is executed if condition1 is true 
+                } else { 
+                code that is executed if condition1 is false 
+            }
+        */
+
+        var exam1 = 50;
+        var exam2 = 60;
+        var avg = (exam1 + exam2) / 2;
+        /*
+            We need to check if the average value is greater than or equal to 60            
+            then we need to check based on our college rule:
+            if the average value is greater than or equal to 60 => we can write "Good Job, you passed!"
+            else we can write "Don't worry, you still have another chance"
+        */
+        if (avg >= 60) {
+            // our code if the condition is true
+            console.log("Good Job, you passed!");
+        } else {
+            // our code if the condition is false
+            console.log("Don't worry, you still have another chance");
+        }
+
+        let sky = "blue";
+        // We can use either == or === in this case:
+        if (sky == "blue") {
+            /* sky is blue, meaning the condition is TRUE.
+             That is why console.log will run */
+            console.log("Nice weather");
+        } else {
+            /* If sky was something other than blue, this code block would run */
+            console.log("It's cloudy");
+        }
+
+        /* 
+        We set the variable sky to blue. If the sky is blue,
+        then first console.log will run. Otherwise second console.log will run.
+        Try changing sky to "gray" and see what happens
+        */
+
+        // Reuse the same logic for the true and false values in JS:
+        var myVariable1; // undefined value for this variable
+        // this condition is false because myVariable1 has no value
+        if (myVariable1) {
+            // This code will NOT be printed
+            console.log("myVariable1", myVariable1);
+        }
+
+        myVariable1 = 100;
+        // since my myVariable1 has a value or if it's true so it's true
+        if (myVariable1) {
+            console.log("myVariable1 has the value of: ", myVariable1);
+        }
+
+        myVariable1 = null;
+        if (myVariable1) {
+            // This code will NOT be printed
+            console.log("myVariable1 has the value of: ", myVariable1);
+        }
+
+        myVariable1 = true;
+        if (myVariable1) {
+            console.log("myVariable1 has the value of: ", myVariable1);
+        }
+
+
+        myVariable1 = false;
+        if (myVariable1) {
+            // This code will NOT be printed
+            console.log("myVariable1 has the value of: ", myVariable1);
+        }
+
+        myVariable1 = 0;
+        if (myVariable1) {
+            // This code will NOT be printed
+            console.log("myVariable1 has the value of: ", myVariable1);
+        }
+
+        if (true) {
+            console.log("Hi there you will see me always before starting your weekend");
+        }
+
+
+
+    </script>
+</body>
+
+</html>

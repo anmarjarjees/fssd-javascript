@@ -196,6 +196,16 @@
         alert("The average of the 3 exams is: " + avg);
         // Or using comas
         alert("The average of the 3 exams is: ", avg); // this will NOT output the avg value   
+
+        // Just Quick Review:
+        let x = parseFloat("10.37");
+        console.log(typeof (x)); // number
+        console.log(x); // 10.37
+        let y = parseFloat("abc");
+        console.log(typeof (y)); // number (interesting in JS!)
+        console.log(y); // NaN
+        let z = x * y;
+        console.log(z); // NaN
     </script>
 </body>
 

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if/else - Logical Operators</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Boolean Operators:
+        
+        In JavaScript, we have the following 3 keywords and are called: "Logical Operator"
+        - AND ==> &&
+        - OR ==> ||
+        - NOT ==> !
+        
+        With the logical operators we need to use following
+        table. This table is called "Truth Table"
+        
+        OR Formula (OR Truth Table): 
+        LEFT-HAND SIDE OR RIGHT-HAND-SIDE ==> BOOLEAN RESULT
+        TRUE OR TRUE ==> TRUE (assuming/imagine that or is + sign: 1 + 1 = 1 => Binary System)
+        TRUE OR FALSE ==> TRUE (1 + 0 = 1)
+        FALSE OR TRUE ==> TRUE (0 + 1 = 1)
+        FALSE OR FALSE ==> FALSE <== All FALSE = FALSE (The key) (0 + 0 = 0)
+                
+        AND Formula (And Truth Table):
+        LEFT-HAND SIDE AND RIGHT-HAND-SIDE ==> BOOLEAN RESULT
+        TRUE AND TRUE ==> TRUE <== All TRUE = TRUE (The key) (think like AND is * sign: 1 * 1 = 1 )
+        TRUE AND FALSE ==> FALSE (1 * 0 = 0)
+        FALSE AND TRUE ==> FALSE (0 * 1 = 0)
+        FALSE AND FALSE ==> FALSE (0 * 0 = 0) 
+        
+        NOT:
+        NOT TRUE (!TRUE) ==> FALSE => In JS is written in small letters: true or false
+        NOT FALSE (!FALSE) ==> TRUE
+        */
+
+        // example from LMS:
+        let fruit1 = "apple";
+        let fruit2 = "peach";
+        if (fruit1 === "apple" && fruit2 === "peach") {
+            console.log("Yummy!");
+        } else if (fruit1 === "apple" || fruit2 === "banana") {
+            console.log("Indeed it's Yummy")
+        }
+
+        // More Advanced Example:
+        var exam1 = 22;
+        var exam2 = 62;
+        var avg = (exam1 + exam2) / 2;
+
+        /*
+       Problem:
+       - scan the average value and check:
+       - if the average is 90+ AND less or equal to 100 ==> (90-100) ==> Excellent
+       - else if the average is 80+ AND less or equal to 89 ==> (80-89) ==> Very Good
+       - else if the average is 70+ AND less or equal to 79 ==> (70-79) ==> Good
+       - else if the average is 60+ AND less or equal to 69 ==> (60-69) ==> Satisfactory
+       - else if the average is 0+ and less than 60 ==> (<60) ==> Fail
+       - else ==> Invalid Average Value
+        */
+        console.log("the average is:" + avg);
+        // Excellent (Honors) ==> 90 - 100
+        if (avg >= 90 && avg <= 100) {
+            console.log("Excellent");
+        } else if (avg >= 80 && avg <= 89) {
+            console.log("Very Good");
+        } else if (avg >= 70 && avg <= 79) {
+            console.log("Good");
+        } else if (avg >= 60 && avg <= 69) {
+            console.log("Satisfactory");
+        } else if (avg >= 0 && avg <= 60) {
+            console.log("Fail");
+        } else {
+            console.log("Invalid Average Value!");
+        }
+
+        /*
+        The same logic in Python language:
+        exam1 = 72
+        exam2 = 62
+        avg = (exam1 + exam2) / 2
+                
+        print("the average is:", avg)
+
+        # Excellent (Honors) ==> 90 - 100
+        if (avg >= 90 and avg <= 100):
+            print("Excellent")
+        elif (avg >= 80 and avg <= 89): 
+            print("Very Good")
+        elif (avg >= 70 and avg <= 79): 
+            print("Good")
+        elif (avg >= 60 and avg <= 69): 
+            print("Satisfactory")
+        elif (avg >= 0 and avg <= 60): 
+            print("Fail")
+        else:
+            print("Invalid Average Value!");
+        */
+
+        /*
+         *****************
+         Ternary Operator:
+         *****************
+
+         if (condition) { condition is true => expression1 } else { condition is false => expression2 }
+
+         You just need one line of code: condition ? expression1 : expression2
+        */
+
+        let age = 20;
+        /*
+        if (age >= 18) {
+            console.log("He/She can buy fireworks");
+        } else {
+            console.log("He/She can't buy fireworks");
+        }
+        */
+        // Just for review, it's legal to omit the { } if the if block/else block has one statment
+        if (age >= 18) console.log("He/She can buy fireworks");
+        else console.log("He/She can't buy fireworks");
+
+        // Repeat the same logic with Ternary Operator
+        // The template: (my condition) ? the code if true : the code if false
+        (age >= 18) ? console.log("He/She can buy fireworks") : console.log("He/She can't buy fireworks");
+
+        // Or assign the result to a varaible:
+        let msg = (age >= 18) ? "He/She can buy fireworks" : "He/She can't buy fireworks";
+        console.log(msg);
+
+        /*
+        # var = true_result if some_condition else false_result 
+        age = 20
+        msg = "He/She can buy firework" if (age>=18) else "He/She can't buy firework"
+        print(msg)
+        */
+
+        // Nested Conditions:
+        // The first condition: College accepts students with age 18+
+        // Then: 
+        // Computer Programming => code: CP123 => building A, Room 112
+        // Graphic Design => code: CDD356 => building A, Room 110
+        // PC Networking => code: PCN990 => building C, Room 102
+        // Accounting => code: ACC780 => building B, Room 107
+
+        // We already defined the age variable with its value
+        // declare teh code varaible:
+        var code = "PCN990"; // all in capital
+
+        // buildng the if block for the above logic:
+        // The long way?
+        if (age >= 18 && code == "CP123") {
+            console.log("Your classroom is in building A, Room 112");
+        } else if (age >= 18 && code == "CDD356") {
+            console.log("Your classroom is in building A, Room 110");
+        } else if (age >= 18 && code == "PCN990") {
+            console.log("Your classroom is in building B, Room 102");
+        } else if (age >= 18 && code == "ACC780") {
+            console.log("Your classroom is in building C, Room 107");
+        } else {
+            console.log("Sorry, invalid age or program code!");
+        }
+
+        if (age >= 18) {
+            if (code == "CP123") {
+                console.log("Your classroom is in building A, Room 112");
+            } else if (code == "CDD356") {
+                console.log("Your classroom is in building A, Room 110");
+            } else if (code == "PCN990") {
+                console.log("Your classroom is in building B, Room 102");
+            } else if (code == "ACC780") {
+                console.log("Your classroom is in building C, Room 107");
+            } else {
+                console.log("Sorry, invalid age or program code!");
+            }
+        } else {
+            console.log("Sorry, invalid age! You have to be 18+ to register");
+        }
+
+        /********************
+        Switch
+        *********************/
+        // Example in if condition => convert it to switch
+        let fruit = "watermelon"; // "orange", or try any other value for testing
+
+        console.log("if/else result:");
+        if (fruit == "apple") {
+            console.log("The fruit is apple");
+        } else if (fruit == "lemon") {
+            console.log("The fruit is lemon");
+        } else if (fruit == "orange") {
+            console.log("The fruit is orange");
+        } else if (fruit == "banana") {
+            console.log("The fruit is banana");
+        } else {
+            // using + concatenating"
+            console.log("Hum!, so you like " + fruit);
+        }
+
+        // now the same logic using switch statement:
+        /*
+        switch (myVariable) {
+            case "value1":
+                // the code for this case
+                break;
+
+            case "value2":
+                // the code for this case
+                break;
+
+            case "value3":
+                // the code for this case
+                break;
+
+            case "value4":
+                // the code for this case
+                break;
+
+            and so on... for the case blocks
+
+            default:
+                // the code for no cases has met the condition
+        }
+        */
+        console.log("switch result:");
+        switch (fruit) {
+            // the value of each case is a string data type => we have to use either " or '
+            case "apple":
+                console.log("The fruit is apple");
+                break;
+            // we can add more lines if needed
+            case "lemon":
+                console.log("The fruit is lemon");
+                break;
+            case "orange":
+                console.log("The fruit is orange");
+                break;
+            case "banana":
+                console.log("The fruit is banana");
+                break;
+            default:
+                console.log("Hum!, so you like " + fruit);
+                break;
+        }
+    </script>
+</body>
+
+</html>

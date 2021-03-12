@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+
+<body>
+    <script>
+        var firstName = "Alex";
+        var lastName = "Chow";
+        // adding an empty string in between the firstName and lastName
+        var fullName = firstName + " " + lastName;
+        console.log("Customer's Full Name: " + fullName);
+
+        // Task: output the following text:
+        // She said: "Javascript is fun!" and then: 'Everything seems possible now!'
+
+        // solution1:
+        console.log("She said:\"Javascript is fun!\" and then: 'Everything seems possible now!'");
+
+        // solution2:
+        console.log('She said:"Javascript is fun!" and then: \'Everything seems possible now!\'');
+
+        // Template Literals (solution3) Very Important:
+        // this symbol ` ==> the key on the left side of 1
+        console.log(`She said: "Javascript is fun!" and then: 'Everything seems possible now!'`);
+
+        // with Template literal, we can split our text in between to multiple lines:
+        console.log(`She said: "Javascript is fun!" 
+                     and then: 'Everything seems possible now!
+                     After learning JavaScript, Python will be very easy to learn!
+                     '`);
+
+        // More Examples:
+        let firstStr = "Module 7:";
+        let secondStr = "JavaScript";
+
+        //  String Concatenation
+        /*
+            We can use the + operator, the concat method or template literals to join two strings
+        */
+        let currentModule = firstStr + " " + secondStr;
+        console.log("My current module is: " + currentModule);
+
+        // we can declare more than one variable with just one var keyword:
+        var exam1, exam2;
+        // Then initialize their values:
+        exam1 = 98;
+        exam2 = 95;
+        var avg = (exam1 + exam2) / 2;
+
+        console.log("The averge of exam1 and exam2 is: " + avg); // not clear enough
+        // cosnole.log("The averge of 98 and 95 is: " + avg); // bad example
+        // The Task* (JS Lab/Assignment):
+        // The average of 98 and 92 is: avg
+        /*
+        We inserted values of two exams into a new string. 
+        Notice the plus operators and how we had to split our main string
+        into several chunks
+        */
+
+        // with double quotes
+        console.log("The average of " + exam1 + " and " + exam2 + " is: " + avg);
+
+        // Or: with single quote
+        console.log('The average of ' + exam1 + ' and ' + exam2 + ' is: ' + avg);
+
+        // with literal template: ` ?????
+        /*
+        We Can Inject The Values Using The ${TextGoesHere} into "Template Literals" Syntax 
+        That We Used For Concatenation:
+        */
+        // we can ignore the ' or " and just warp our entire text with ` first
+        // wrap every varaiable with { } with the sybmol of $ => ${variableName}
+        console.log(`The average of ${exam1} and ${exam2} is: ${avg}`);
+
+        
+    </script>
+</body>
+
+</html>
