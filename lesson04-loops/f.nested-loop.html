@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Loop</title>
+</head>
+
+<body>
+    <script>
+
+        for (let x = 1; x <= 10; x++) {
+            document.write(x + "test" + "<br>");
+        }
+        document.write("<hr>");
+        /*
+        Problem:
+        - Type the only even numbers: 0 to 10 => 0 2 4 6 8 10 using for loop
+        - Type them 10 times => using for loop
+        in other word, I want to repeat the main loop for printing them 10 times
+        */
+
+        for (let x = 1; x <= 10; x++) {
+            for (let i = 0; i <= 10; i += 2) {
+                document.write(i);
+            }
+            document.write("<br>");
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -16,8 +16,6 @@
             increment/decrement the whileLoopCounter
         }
 
-
-
         The same example of printing 1 - 10
         for loop then using while loop
         */
@@ -25,14 +23,15 @@
             document.write("<p>" + i + "</p>");
         }
 
-       
+
         // We want to print this text 10 times using while loop
         // to start counting from 1 to 10
-        var count=1;
-        while (count<=10) {
-             document.write("<p>" + count + "</p>");
-             count++;
+        var count = 1;
+        while (count <= 10) {
+            document.write("<p>" + count + "</p>");
+            count++;
         }
+        document.write("<p>the loop counter 'count' value after the loop is now: " + count + "</p>");
 
         /*
         In Python:
@@ -54,6 +53,46 @@
             document.write("<br> infinite loop!");
         }
         */
+
+        // Using ul to format our code:
+        document.write("<ul>");
+        count = 1;
+        while (count < 11) {
+            document.write("<li>I am so happy to learn JavaScript!</li>");
+            count++;
+        }
+        document.write("</ul>");
+
+        document.write("<hr>");
+
+
+        // Do While:
+        /*
+         This loop has two keywords: "do" and "while":
+         do { 
+             block code 
+        } while (condition);
+        */
+
+        // Reset the same varaible "count" to 1 again:
+        count = 1;
+        // the code will run at least one time even if the condition is false
+        do {
+            document.write("<li>For sure, I am so happy to learn JavaScript!</li>");
+            // we need to increment/decrement
+            count++; // 2
+        } while (count <= 10);
+
+        document.write("<hr>");
+
+        // Reset the same varaible "count" to 1 again:
+        count = 1;
+        // the code will run at least one time even if the condition is false
+        do {
+            document.write("<li>For sure, I am so happy to learn JavaScript!</li>");
+            // we need to increment/decrement
+            count++; // 2
+        } while (count > 10); // False! 
     </script>
 
 </body>
