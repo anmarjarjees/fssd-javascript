@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While and Do While</title>
+</head>
+
+<body>
+    <script>
+        /*
+        initialize whileLoopCounter
+        while (condition to check the whileLoopCounter) {
+            // my code
+            increment/decrement the whileLoopCounter
+        }
+
+
+
+        The same example of printing 1 - 10
+        for loop then using while loop
+        */
+        for (let i = 1; i <= 10; i++) {
+            document.write("<p>" + i + "</p>");
+        }
+
+       
+        // We want to print this text 10 times using while loop
+        // to start counting from 1 to 10
+        var count=1;
+        while (count<=10) {
+             document.write("<p>" + count + "</p>");
+             count++;
+        }
+
+        /*
+        In Python:
+        i = 1
+        while i <= 10:
+            print(i) 
+            i +=1 
+            
+        i = 10
+        while i >=1:
+            print(i)
+            i -=1
+        */
+
+
+        // example of infinite while loop
+        /*
+        while (true) {
+            document.write("<br> infinite loop!");
+        }
+        */
+    </script>
+
+</body>
+
+</html>

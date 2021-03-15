@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops Introduction</title>
+</head>
+
+<body>
+    <script>
+        // We want to output the following numbers (1-10) into our html page:
+        /*
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+        */
+
+        document.write("1 2 3 4 5 6 7 8 9 10");
+        /* Just adding hr  */
+        document.write("<hr>");
+
+        // Print all the numbers in vertical way:
+        document.write("1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> 10");
+        document.write("<hr>");
+
+        // OR using document.write 10 times!
+        document.write(1); // or (1+"<br>")
+        document.write("<br>"); // just to have a break
+
+        // to output 2:
+        document.write(2 + "<br>");
+
+        // to output 3:
+        document.write(3 + "<br>");
+
+        // to output 4:
+        document.write(4 + "<br>");
+
+        // to output 5:
+        document.write(5 + "<br>");
+
+        // and so on for the rest: 5,6,7,8,9,10
+
+        /*
+        To avoid the too many lines of coding,
+        we can use the "loop" statement
+        
+        Three types of loops:
+        - for loop
+        - while loop
+        - do while loop
+
+        for loop structure:
+        for (statement1; statement2; statement3) { 
+            // code to be executed 
+        } 
+
+        statement1: The initial value of the loop counter (The start counting number)
+        statement2: The condition to keep the loop "running"=> I want to keep looping since the condition is true
+        statement3: The increment/decrement operation for the loop counter
+
+        - we can create/declare a loop variable like "loopCounter" for example or any name you like.
+        - and having this loopCounter to start with the value of "1" (the required initial value in this example)
+        - and keep increment this variable one by one till it reaches the value of "10"
+        - then the loop should be stopped because we don't want to go beyond 10
+        */
+
+        // Let's take another very simple example first:
+        // We want to print this text 10 times
+        // to start counting from 1 to 10
+        /*
+        To recap:
+        let myNumber = 1;
+
+        To add 1 to the current value of myNumber:
+        - way#1
+        myNumber = myNumber+1;
+
+        - way#2
+        myNumber +=1;
+
+        - way#3 (the one that we should use with for loop)
+        myNumber++;
+
+        The same rules for sub:
+        let mySecondNumber = 100;
+
+        To deduct 1 from the current value of mySecondNumber:
+        - way#1
+        mySecondNumber = mySecondNumbe-100;
+
+        - way#2
+        mySecondNumber -=100;
+
+        - way#3 (the one that we should use with for loop)
+        mySecondNumber--;
+        */
+        document.write("<hr><h3>Using For Loop</h3>");
+        for (var count = 1; count < 11; count++) {
+            // code to be executed 
+            document.write("<p>I am so happy to learn JavaScript!</p>");
+        }
+
+        document.write("<ul>");
+        for (var count = 1; count < 11; count++) {
+            // code to be executed 
+            document.write("<li>I am so happy to learn JavaScript!</li>");
+        }
+        document.write("</ul>");
+
+        document.write("<hr>");
+
+        // going to our example of printing 1 to 10 vertically
+        // the better way:
+        for (let i = 1; i < 11; i++) {
+            document.write(i + "<br>");
+        }
+
+        Or:
+        for (let i = 1; i <= 10; i++) {
+            document.write(i + "<br>");
+        }
+
+        // the long way:
+        var number = 1;
+        for (let i = 1; i < 11; i++) {
+            document.write(number + "<br>");
+            number++;
+        }
+
+        /*
+        In Python:
+        for number in range(1,21):
+            print(number)
+
+        */
+
+        document.write("<hr>");
+        // typing 10 to 1 vertically:
+        // Examle of infinite loop:
+        /*
+        for (let i = 10; i <= 10; i--) {
+            document.write(i + "<br>"); // 10, 9, 8, 7, ..., 1, 0, -1, -2
+        }
+        */
+
+        // We need keep looping while i is still more than 0 => i > 0
+        // or keep looping while i is still more than or equal to 1 => i >=1
+        for (let i = 10; i > 0; i--) {
+            document.write(i + "<br>"); // 10, 9, 8, 7, ..., 1, 0, -1, -2
+        }
+
+        document.write("<hr>");
+        // print the even numbers from 0 to 10 => 0 2 4 6 8 10 (vertically):
+        for (let i = 0; i < 11; i += 2) {
+            document.write(i + "<br>");
+        }
+
+        // in for loop, we can omit/skip the { } if it has one single statement (line of code)
+        // we should always add { }
+        for (let i = 0; i < 11; i += 2)
+            document.write(i + "<br>");
+
+    </script>
+
+    <!-- Pure HTML  -->
+    <ul>
+        <li>I am so happy to learn JavaScript!</li>
+        <li>I am so happy to learn JavaScript!</li>
+        <li>I am so happy to learn JavaScript!</li>
+        <li>I am so happy to learn JavaScript!</li>
+    </ul>
+</body>
+
+</html>
