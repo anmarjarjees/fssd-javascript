@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        // one lucky number:
+        let myLuckyNumber = 12;
+
+        // my 6 lucky numbers:
+        let myLuckyNumber1 = 7;
+        let myLuckyNumber2 = 10;
+        let myLuckyNumber3 = 22;
+        let myLuckyNumber4 = 3;
+        let myLuckyNumber5 = 18;
+        let myLuckyNumber6 = 20;
+
+        // Data Structure: Array (JS) - Python (List)
+        // Array stores multiple values in the same variable
+        let myLuckyNumbers = [7, 10, 22, 3, 18, 20];
+        /*
+        The values of the array called "elements"
+        The first element is 7, the second element is 10, and so on...
+
+        Each element has a unique index (like any letter in a string)
+        Remember that each char in a string has a unique index and the index starts with 0
+
+        The same concept with array:
+        the first element index is 0
+        the second one has the index of 1
+        and so on...
+
+        To access the value of the third element => we need to use index value of 2
+        */
+        console.log(myLuckyNumbers); // Array(6)
+        /*
+            0: 7
+            1: 10
+            2: 22
+            3: 3
+            4: 18
+            5: 20
+            length: 6
+        */
+        document.write(myLuckyNumbers); // 7,10,22,3,18,20
+
+        // Array with text values:
+        let mySubjects = ["HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Python"];
+        console.log(mySubjects);
+
+        // Or mixed of different data types:
+        let myArray = [1, 2, "banana", "apple", true, false];
+        console.log(myArray);
+
+        /*
+        Remember that everything is JS is an object
+        - string is an object
+        - number is an object
+        - array is an object
+        */
+
+        // The other way is by using: "Constructor" => Array()
+        // Example (Pattern): let myObjectName = new ConstructorName()
+
+        // create an array with days of the week:
+        let weekDays = new Array("Mon", "Tue", "Wed", "Thu", "Fri");
+        console.log(weekDays);
+
+        // The same idea with string objects:
+        let myFirstLang = "JavaScript";
+        // we can use the "Constructor" to create a new string:
+        // Or using the StingConstructor
+        let mySecondLang = new String("Python");
+
+        // more examples of string:         
+        let myOS1 = new String("Microsoft Windows 10 Home Edition");
+        let myOS2 = "Mac OS";
+
+        // The same idea with number objects:
+        let exam1 = 92;
+        // Or using the constructor method => the NumberConstructor
+        let exam2 = new Number(90);
+
+        // Task: output these two messages to the console window:
+        // My operating system is "Microsoft Windows 10 Home Edition"
+        // My other operating system is "Mac OS"
+        console.log('My operating system is: "' + myOS1 + '"');
+        // Or using Template Literal:
+        console.log(`My operating system is: "${myOS1}"`);
+        console.log(`My other operating system is: "${myOS2}"`);
+
+        document.write("<br>My subjects are: " + mySubjects);
+        // the output: My modules are: HTML,CSS,Bootstrap,JavaScript,jQuery,Python (No good!)
+        // It should be:  My modules are: HTML, CSS, Bootstrap, JavaScript, jQuery, and Python (Better English)
+
+        // Let's continue with array index values
+        // Task using "mySubjects" array print: 
+        // My current module is JavaScript and previous module was Bootstrap
+        // We need to call these 2 subjects from the array "mySubjects"
+        // The forth item/element "JavaScript" is positioned at the index 3:
+        // The third item/element "Bootstrap" is positioned at the index 2:
+        document.write("<br>My current module is " + mySubjects[3] + " and previous module was " + mySubjects[2]);
+
+        /*
+        Because array is an object,
+        we can use its property named "length"
+        to find how many elements we have in this array.
+
+        we used the same property "length" with string object to find how many characters in the string
+        */
+        console.log(mySubjects.length); // 6
+        console.log(`We have ${mySubjects.length} major subjects`);
+
+        // More practicing:
+        // Task find the average for the numbers inside the myLuckyNumbers array:
+
+        // first formula: find the total => Using the long way! (We SHOULD use loop to find the total)
+        let total = myLuckyNumbers[0] + myLuckyNumbers[1] + myLuckyNumbers[2] + myLuckyNumbers[3] + myLuckyNumbers[4] + myLuckyNumbers[5];
+
+        // second formula: find the average
+        let average = total / myLuckyNumbers.length;
+        console.log('The average is: ' + average);
+
+
+        // Before ending:
+        // We can create an empty array and insert its values later:
+        // like working with variables:
+        let myNum1; // var myNum2;
+        myNum1 = 100;
+        let myNum2 = 200; // var myNum2=200;
+
+        // In Arrays:
+        // Declare an empty array:
+        var myBooks = [];
+        // Or:
+        var myPrograms = new Array();
+
+        // To put/insert the values, we can use the index syntax for now:
+        myBooks[0] = "Beginning JavaScript";
+        myBooks[1] = "Adobe Dreamweaver";
+        myBooks[2] = "HTML and CSS Web Design";
+
+        myPrograms[0] = "MS Office";
+        myPrograms[1] = "DMWD";
+        myPrograms[3] = "FSSD";
+
+        // Later we will use the array method for inserting elements to the array:
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array's Methods</title>
+</head>
+
+<body>
+    <script>
+        /*
+             Array Methods - Push & Pop
+             
+             Syntax example:
+             arrayName.push(the value) => will be used in the JS lab :-)
+             arrayName.pop()
+        */
+        let myArray = ["milk", "bread", "chocolate"];
+        console.log(myArray);
+
+        // I want to add the item "banana" 
+        // myArray[0] = "banana"; // This will override the first element in index 0;
+        myArray[3] = "banana";
+        console.log(myArray); // (4) ["milk", "bread", "chocolate", "banana"]
+
+        // Insert one more item at the end "orange"
+        // The current array: ["milk", "bread", "chocolate", "banana"]
+        // the last index is always the length - 1
+        // so to add a new item we can just use the length
+        myArray[myArray.length] = "orange";
+        console.log(myArray); // (5) ["milk", "bread", "chocolate", "banana", "orange"]
+
+        // Let's add "apple" to the array using the array's method push()
+        // push() method appends new elements to the end of an array:
+        myArray.push("apple");
+        console.log(myArray);
+
+        // Here we perform an action on myArray, we add "juice" to myArray
+        myArray.push("juice"); // Adding the "juice" as an argument for the method push()
+        // JS will concatenate the items as one string
+        console.log("In my breakfast I had: " + myArray);
+        // milk,bread,chocolate,banana,orange,apple,juice
+
+        // The other way to display string with varaible:
+        // using the , instead of + (like python)
+        console.log("myArray: ", myArray);
+        // alert("test"); => void => doesn't return anything
+
+        // adding another item:
+        myArray.push("Tea"); // adding the text/string "Tea" as an argument
+        console.log("my breakfast items: ", myArray);
+
+        // The current array: ["milk", "bread", "chocolate", "banana", "orange", "apple", "juice", "Tea"]
+
+        /*
+        pop() will remove the "LAST" element/item
+        */
+        myArray.pop(); // doesn't have an argument => the last item/element will be removed "Tea"
+        console.log("my breakfast items after removing the last one: ", myArray);
+        /*
+        VSC: pop() as method => returns string
+        */
+        let myLastElement = myArray.pop();
+        console.log('The last element that we removed is: ' + myLastElement); // juice
+
+        var mySportArr = ["Basketball", "Football", "Tennis"];
+        // adding Swimming at the end (without using push())
+        mySportArr[3] = "Swimming";
+        console.log(mySportArr);
+
+        // let's add one more item "Table Tennis"
+        mySportArr[5] = "Table Tennis"; // We skipped the index 4!
+        console.log(mySportArr);
+        /*
+   
+        mySportArr: after adding "Table Tennis"
+
+        ["Basketball", "Football", "Tennis", "Swimming", empty, "Table Tennis"]
+        0: "Basketball"
+        1: "Football"
+        2: "Tennis"
+        3: "Swimming"
+        5: "Table Tennis"
+        length: 6
+        */
+
+        myDrinks = ["Green Tea", "Coffee", "Mocha"];
+        // adding "Juice" at the end
+        // but without using push()
+        // also without counting the index!!!!!!
+        // We know that the index of the last item in the array
+        // is equal to the array length - 1
+        myDrinks[myDrinks.length] = "Juice";
+        /*
+        since length: 6
+         mySportArr[6]="Running";
+        */
+        console.log(myDrinks);
+        // using the , instead of + to "myDrinks" display as an array structure
+        console.log("My Drinks:", myDrinks);
+
+        /* ****************************************
+            Array Methods - Shift & Unshift
+        ****************************************** */
+
+        // myDrinks => ["Green Tea", "Coffee", "Mocha", "Juice"]
+        /* IF pop() removes the last element, shift removes the first item from an array */
+        var myFavDrink = myDrinks.shift();
+        console.log("My Drinks:", myDrinks);
+        console.log("My favourite hot drink is: " + myFavDrink);
+
+        /* unshift adds a new item at the beginning of the array */
+        myDrinks.unshift("Ice Tea");
+
+        console.log("My Drinks:", myDrinks);
+        /*
+            0: "Ice Tea"
+            1: "Coffee"
+            2: "Mocha"
+            3: "Juice"
+            length: 4
+        */
+
+        /*
+        To summarize:
+        1- To add a item to an array:
+        > push('value') => to the end of the array
+        > unshift('value') => to the front/beginning of the array
+
+        2- To remove a item from an array:
+        > pop() => remove the last element
+        > shift('value') => remove the fist element
+        */
+
+
+        /*
+        The sort() method sorts the items in an array in ascending and alphabetical order [A-Z].
+        Unicode code points are used rather than the Roman/Arabic characters themselves.
+        If you have several strings, sort method will sort them alphabetically.
+        If there are numbers, they will be sorted from lowest to highest.
+        However as unicode code points are used they are ordered by the first character in the number.
+        */
+        // Sort the elements inside "myDrinks" array
+        // Always Asc from A-Z
+        // myDrinks =>  ["Ice Tea", "Coffee", "Mocha", "Juice"]
+        myDrinks.sort();
+        console.log("My Drinks:", myDrinks);
+        // ["Coffee", "Ice Tea", "Juice", "Mocha"]
+
+        // Print again "myArray" array:
+        console.log(myArray);
+        /*
+            (6) ["milk", "bread", "chocolate", "banana", "orange", "apple"]
+        */
+        console.log(myArray.sort());
+        /*
+        (6) ["apple", "banana", "bread", "chocolate", "milk", "orange"]
+        */
+
+        mySubjects = ["HTML", "CSS", "Bootstrap", "JavaScript", "JQuery", "Python"];
+        // I want to sort them in Des order Z-A
+        // sort() method can only sort from A-Z
+        // Hint: array object has a method "reverse" to reverse the order of the array elements
+        mySubjects.sort(); // step1: sort the array [A-Z]
+        mySubjects.reverse(); // step2: reverse the array
+        console.log("mySubjects sorted Z-A", mySubjects);
+        /*
+            0: "Python"
+            1: "JavaScript"
+            2: "JQuery"
+            3: "HTML"
+            4: "CSS"
+            5: "Bootstrap"
+            length: 6
+        */
+
+        /*
+            Array Methods - Slice:
+            The slice() method takes two arguments: the start point and end point.
+            The end point is not included in the result.
+            These two points represent indices in an array.
+            Don’t forget that original array is not changed.
+            
+            Note: slice method returns the result in the form of a new array.
+            It doesn’t affect the original one:
+        */
+        let planets = ["Earth", "Mars", "Neptune", "Uranus", "Venus"];
+        console.log(planets);
+        /*
+        planets = "Earth", "Mars", "Neptune", "Uranus", "Venus"
+        Index   =   0,      1,      2,         3,        4
+
+        I want to create another array for thr first, second, third elements:
+        the new array = "Earth", "Mars", "Neptune"
+        */
+
+        // Returns a copy of a section of an array
+        // from index 0 to index 2 (index 3 will not be included)
+        let myThreeFavPlanets = planets.slice(0, 3);
+        console.log(myThreeFavPlanets);
+        console.log(planets);
+
+
+        // Check the code below! Lengthy, complex, repeated lines
+        // Stay tuned to use for loop later:
+        document.write("<ul>");
+        document.write("<li>" + planets[0] + "</li>");
+        document.write("<li>" + planets[1] + "</li>");
+        document.write("<li>" + planets[2] + "</li>");
+        document.write("<li>" + planets[3] + "</li>");
+        document.write("<li>" + planets[4] + "</li>");
+        document.write("</ul>");
+
+        /*
+            Nesting functions or methods in JS:
+            Examples:
+            > console.log(parseFloat(myVariable));
+            > console.log(myArray.sort());
+        */
+
+        // another concept: method chaining => (Used a lot with DOM and jQuery )
+        // method1Name().method2Name(). ........
+        // combine the two methods slice and sort together:
+        var musicStyles = ["jazz", "rock", "hiphop", "rap"];
+
+        // we can assign an array to another variable to be array also:
+        var musicStylesCopy = musicStyles;
+        musicStyles.sort(); // We only want to sort the new copy and NOT the original copy
+        console.log("musicStylesCopy", musicStylesCopy);
+        console.log("musicStyles", musicStyles);
+        /*
+       When we run the sort() method, it mutates the original array
+       - even when we want the result to be stored in a new variable.
+
+       How can we get around this? One way is using something called "method chaining",
+       which involves using two or more methods together.
+       You may remember from a previous lesson that the slice() method returns a copy of the array.
+       So, we can create a new, sorted array by chaining slice() and sort() together,
+       as you can see in the following example:
+
+       Example:
+       we can create a new array with the sorted element
+       notice that we don't have to specify the starting/ending point with slice
+       in this case JS will take the full array:
+       */
+        var myTextBooks = ["PHP", "C#", "ASP.NET", "Django", "Python", "JavaScript"];
+        console.log("myTextBooks", myTextBooks);
+        // This code will sort both arrays: the original one "myTextBooks" and the new one "myTextBooksSorted"
+        // var myTextBooksSorted = myTextBooks.sort();
+
+        // sing slice() without any parameters to get the entire copy then sort the copy with sort() method
+        // if no start and end index provided => Js will take the first and last and anything in between
+        var myTextBooksSorted = myTextBooks.slice().sort();
+        // Or sorting the array and reverse them:
+        // var myTextBooksSorted = myTextBooks.slice().sort().reverse();
+        console.log("myTextBooksSorted", myTextBooksSorted);
+        console.log("myTextBooks", myTextBooks);
+
+
+        /*
+            With the ES6, the newest version of JavaScript,
+            there is one more way to alternate the content of the current array.
+
+            Meet the fill() method. It can take three arguments:
+            - The first one is the value that we want to put in the array,
+            - the second one is where to start filling
+            - and the last one where to stop filling:
+        */
+
+
+        // fill() method:
+        // *************
+        let array1 = ["milk", "bread", "chocolate", "lemon", "banana", "orange", "tea"];
+        // fill the entire array with a
+        // console.log(array1.fill("a"));
+
+        // fill the array with a starting from index 1 and finish at index 3
+        // bread, chocolate => "a"
+        /*
+        The command below will fill index 1 and index 2 of the array with "a" letters
+        */
+        // array1 = ["milk", "apple", "apple", "apple", "banana", "orange", "tea"];
+        console.log(array1.fill("apple", 1, 4));
+        // (7) ["milk", "apple", "apple", "apple", "banana", "orange", "tea"]
+    </script>
+</body>
+
+</html>
