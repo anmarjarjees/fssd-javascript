@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops with 2 Dim Array</title>
+</head>
+
+<body>
+    <script>
+        // Review: 1D-Array:
+        var modules1d = ["module1 HTML 1 Week", "module2 CSS 2 Weeks", "module3 JavaScript 3 Weeks"]
+
+        document.write("<ul>");
+        // Remember that we already declared i before:
+        for (i = 0; i < modules1d.length; i++) {
+            document.write("<li>" + modules1d[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        document.write("<hr>");
+        // 2D-Array
+        var modules2d = [
+            ["module1", "HTML", "1 Week"],
+            ["module2", "CSS", "2 Weeks"],
+            ["module3", "JavaScript", "3 Weeks"],
+            ["module4", "Python", "4 Weeks"]
+        ];
+
+
+        for (i = 0; i < modules2d.length; i++) {
+            document.write(modules2d[i] + "<br>");
+        }
+
+        // Review:
+        // If we want to print the first element: module1 HTML 1 Week
+        document.write("<h3>All Module Info (Without loop):</h3>");
+        document.write(modules2d[0][0] + ": " + modules2d[0][1] + " " + modules2d[0][2] + "<br>");
+        document.write(modules2d[1][0] + ": " + modules2d[1][1] + " " + modules2d[1][2] + "<br>");
+        document.write(modules2d[2][0] + ": " + modules2d[2][1] + " " + modules2d[2][2] + "<br>");
+        document.write(modules2d[3][0] + ": " + modules2d[3][1] + " " + modules2d[3][2] + "<br>");
+
+        document.write("<hr>")
+        document.write("<h3>All Module Info (using Nested loop):</h3>");
+        for (i = 0; i < modules2d.length; i++) {
+            for (let j = 0; j < 3; j++) {
+                document.write(modules2d[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+
+
+        document.write("<hr>")
+        document.write("<h3>Foods Array Example</h3>");
+        let foods = [
+            ['chicken', 'beef', 'pork'],
+            ['milk', 'yogurt', 'cheese'],
+            ['beans', 'peas', 'broccoli'],
+            ['apples', 'oranges', 'bananas'],
+            ['bread', 'oats', 'cereal'],
+            ['candy', 'chips', 'popcorn']
+        ];
+
+        console.log(foods);
+
+        document.write("<h2>Meals List</h2>");
+        document.write("<ul>");
+        for (let i = 0; i < foods.length; i++) {
+            document.write("<li>" + foods[i] + "</li>"); // example: chicken,beef,pork
+        }
+        document.write("</ul>");
+
+        document.write("<ul>");
+        // the first loop with i => for the main array "foods"
+        for (let i = 0; i < foods.length; i++) {
+            // the second loop with j => for every individual array inside the "foods" array:
+            for (let j = 0; j < 3; j++) {
+                // li is a block level element
+                document.write("<li>" + foods[i][j] + "</li>");
+            }
+        }
+        document.write("</ul>");
+
+        /*
+        chicken
+        beef
+        pork
+        milk
+        yogurt
+        cheese
+        beans
+        peas
+        broccoli
+        apples
+        oranges
+        bananas
+        bread
+        oats
+        cereal
+        candy
+        chips
+        popcorn
+        */
+
+        // Let's try to fix it with this solution:
+        document.write("<ul>");
+        // the first loop with i => for the main array "foods"
+        for (let i = 0; i < foods.length; i++) {
+            // the second loop with j => for every individual array inside the "foods" array:
+            document.write("<li>");
+            // we have 3 elements => index 2 is highest 
+            for (let j = 0; j < 3; j++) {
+                // li is a block level element
+                if (j != 2) {
+                    document.write(foods[i][j] + ", ");
+                }
+                else {
+                    document.write(foods[i][j]);
+                }
+            }
+            document.write("</li>");
+        }
+        document.write("</ul>");
+
+
+        // Let's try to fix it this solution: if condition
+        // let myvar = someTest ? resultIfTrue : resultIfFalse 
+
+        document.write("<ul>");
+        // the first loop with i => for the main array "foods"
+        for (let i = 0; i < foods.length; i++) {
+            // the second loop with j => for every individual array inside the "foods" array:
+            document.write("<li>");
+            // we have 3 elements => index 2 is highest 
+            for (let j = 0; j < 3; j++) {
+                /*
+                if (j != 2) {
+                    document.write(foods[i][j] + ", ");
+                }
+                else {
+                    document.write(foods[i][j]);
+                }
+                */
+                (j != 2) ? document.write(foods[i][j] + ", ") : document.write(foods[i][j]);
+            }
+            document.write("</li>");
+        }
+        document.write("</ul>");
+
+
+
+    </script>
+</body>
+
+</html>

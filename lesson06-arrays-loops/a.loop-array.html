@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops with 1 Dim Arrays</title>
+</head>
+
+<body>
+    <script>
+        let sports = ["Basketball", "Football", "Tennis", "Chess", "Swimming", "Running"];
+        document.write(sports);
+        document.write("<h2>My favourite Sports</h2>");
+        // We need to output all the sports:
+        document.write("<ul>");
+        document.write("<li>" + sports[0] + "</li>");
+        document.write("<li>" + sports[1] + "</li>");
+        document.write("<li>" + sports[2] + "</li>");
+        document.write("<li>" + sports[3] + "</li>");
+        document.write("<li>" + sports[4] + "</li>");
+        document.write("<li>" + sports[5] + "</li>");
+        document.write("</ul>");
+
+
+        var userNames = [
+            "martinsmith",
+            "alexchow",
+            "sarahgrayson",
+            "katewillson",
+            "jamesdean"
+        ];
+        document.write("<h2>User Names</h2>");
+        // we want to display the array's value formatted within HTML element:
+        document.write("<ul>");
+        document.write("<li>" + userNames[0] + "</li>");
+        document.write("<li>" + userNames[1] + "</li>");
+        document.write("<li>" + userNames[2] + "</li>");
+        document.write("<li>" + userNames[3] + "</li>");
+        document.write("<li>" + userNames[4] + "</li>");
+        document.write("</ul>");
+
+
+        // using for loop:
+        // we want to use the loop counter to be the index for our array
+        document.write("<ul>");
+        // Using loop the with array => the loop counter will represent the array index
+        // that's why we initialize the loop counter with 0
+        // for loop will help to summarize the above 6 statements of document.write to one statement only!
+        for (let i = 0; i < 6; i++) {
+            /*
+            sports[0] in the first iteration
+            sports[1] in the second iteration
+            sports[2] in the third iteration
+            sports[3] in the fourth iteration
+            and so on...
+            */
+            document.write("<li>" + sports[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        // we want to use the loop counter to be the index for our array
+        // we can use the array property "length"
+        document.write("<ul>");
+        for (let i = 0; i < sports.length; i++) {
+            document.write("<li>" + sports[i] + "</li>");
+        }
+        document.write("</ul>");
+
+
+        document.write("<ul>");
+        // we do need to use a loop like for loop:
+        for (let i = 0; i < userNames.length; i++) {
+            document.write("<li>" + userNames[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        // For-In Loops (JavaScript):
+        /*
+           We can use a for-of loop to easily get the actual element from the array
+        */
+        document.write("<ul>");
+        /*
+        the first variable "sport" => ANY NAME that reflects the item that we are getting from the array
+        the second variable "sports" => the name of the array
+        */
+        for (let sport of sports) {
+            /*
+            In our first iteration of the loop, sport = "basketball"
+            In our second iteration of the loop, sport = "football"
+            In our third iteration of the loop, sport = "tennis"
+            In our fourth iteration of the loop, sport = "chess"
+            and so on...
+            */
+            document.write("<li>" + sport + "</li>");
+        }
+        document.write("</ul>");
+
+        /*
+        In Python:
+        for sport in sports:
+            print sport
+        */
+
+        // using while loop:
+        document.write("<ul>");
+        let x = 0;
+        while (x < sports.length) {
+            document.write("<li>" + sports[x] + "</li>");
+            x++;
+        }
+        document.write("</ul>");
+
+        document.write("<hr>");
+
+        document.write("<ul>");
+        // we do need to use a loop like for loop:
+        let y = 0;
+        while (y < userNames.length) {
+            document.write("<li>" + userNames[y] + "</li>");
+            y++;
+        }
+        document.write("</ul>");
+        // using do while loop:
+        // you can try it :-)
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Dimensions</title>
+</head>
+
+<body>
+    <script>
+        // To recap: one dimensional array
+        let oneDimensionalArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+        // I want to output the 'd':
+        console.log(oneDimensionalArray[3]); // d
+
+
+        // Multidimensional Arrays (2 dimensions) =>2 arrays:
+        /*
+           var my2DArray = [ array1, array2, array3, ...  ];
+           
+           array1 = [ value1, value2, value3 ]
+           array2 = [ value1, value2, value3 ]
+           array3 = [ value1, value2, value3 ]
+       */
+
+        /*
+        twoDimensionalArray = [ list the elements of this array ]
+        twoDimensionalArray = [ element1, element2, element3 ]
+        element1 = ["a", "b", "c"]
+        element2 = ["d", "e", "f"]
+        element3 = ["g", "h", "i"]
+        */
+        let twoDimensionalArray = [
+            ["a", "b", "c"],
+            ["d", "e", "f"],
+            ["g", "h", "i"]
+        ];
+        console.log(twoDimensionalArray);
+
+        // I want to output the 'd' from this array "twoDimensionalArray":
+        console.log(twoDimensionalArray[3]); // undefined => because this array has only 3 indices: 0,1,2
+
+        console.log(twoDimensionalArray[1]); // Array(3) => ["d", "e", "f"]
+
+        // [1] => will target the second element 
+        // ["d", "e", "f"] => d has the index of 0
+        console.log(twoDimensionalArray[1][0]); // d
+
+        // var myArray = [ [val1, val2, val3], [val4, val5, val6] ]; 
+        // write it in one/multiple line(s):
+        /*
+        FSSD Modules:
+        - module1 => HTML => 1 Week
+        - module2 => CSS => 2 Weeks
+        - module3 => JavaScript => 3 Weeks
+        - module4 => Python => 1 Week
+
+        modules will be our 2 dimensional array
+        every module1 information will be an array inside modules
+        */
+
+        // We used 1 dim array:
+        var modules = [
+            'module1 => HTML => 1 Week',
+            'module2 => CSS => 2 Weeks',
+            'module3 => JavaScript => 3 Weeks',
+            'module4 => Python => 1 Week'
+        ];
+
+        // the full info about module3 => has the index of 2:
+        console.log(modules[2]);
+
+        // I want to access only the name of module 4 ???
+        let str = "module4 => Python => 1 Week";
+
+        let myKeyWord = "Python"; // the key word to search for in a string
+        // using indexOf() method of the string object:
+        var startingIndex = str.indexOf(myKeyWord); // staring with index 11
+        console.log(startingIndex); // 11
+        // my word 'JavaScript' is in index 11,20
+        // my word 'Python' has six characters
+        // slice(startingIndex, endingIndex);
+        var endingIndex = startingIndex + myKeyWord.length; // 11 + 6
+        var myReturnedKeyword = str.slice(startingIndex, endingIndex);
+        console.log(myReturnedKeyword);
+
+        // OR using this complex syntax!!!!:
+        var myReturnedKeyword2 = str.slice(str.indexOf(myKeyWord), str.indexOf(myKeyWord) + + myKeyWord.length);
+        console.log(myReturnedKeyword2);
+
+        // We used 2 dim array:
+        // using ' or double " 
+        var modules = [
+            ['module1', 'HTML', '1 Week'],
+            ['module2', 'CSS', 'Weeks'],
+            ['module3', 'JavaScript', '3 Weeks'],
+            ['module4', 'Python', '1 Week']
+        ];
+
+        // I want to access only the name of module 4 ???
+        console.log(modules[3]); // ['module4', 'Python', '1 Week'] !!!!
+        console.log(modules[3][1]);
+
+        /*
+           to output (console): the text "CSS"
+           1- CSS is the second array
+           2- CSS is the second item in the second array
+       */
+        console.log(modules[1][1]); // CSS
+
+        // the main array named "cars"
+        var cars =
+            [
+                ["Honda", "Made in Japan"],
+                ["Dodge", "Made in USA"],
+                ["Kia", "Made in Korea"],
+                ["BMW", "Made in Germany"],
+            ]
+
+        // task: print the info about kia:
+        console.log("Car Name:", cars[2][0]);
+        console.log("Car Made:", cars[2][1]);
+
+        // Or: creating a one dimensional array from the third element (array) in cars array:s
+        let kiaArray = cars[2];
+        console.log(kiaArray); // (2) ["Kia", "Made in Korea"]
+        console.log("Car Name:", kiaArray[0]);
+        console.log("Car Made:", kiaArray[1]);
+
+
+        let foods = [
+            ['chicken', 'beef', 'pork']
+            ['milk', 'yogurt', 'cheese'],
+            ['beans', 'peas', 'broccoli'],
+            ['apples', 'oranges', 'bananas'],
+            ['bread', 'oats', 'cereal'],
+            ['candy', 'chips', 'popcorn']
+        ];
+
+
+        // ******************************************************************
+        // Example for LMS Challenge:
+        // Access the value 15 from this multiDimensional array!
+        // [3] [3] [3] [3] [2] [0]
+        let multiDimensionalArray = [
+            1,
+            2,
+            3,
+            [
+                4,
+                5,
+                6,
+                [
+                    7,
+                    8,
+                    9,
+                    [
+                        10,
+                        11,
+                        12,
+                        [
+                            13,
+                            14,
+                            [
+                                15
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        let fifteen = multiDimensionalArray[3][3][3][3][2][0];
+        // This will log your variables to the console
+        console.log(fifteen);
+
+
+        console.log("*****************************************************");
+        // Country data to be used in your array construction:
+        // Fields are country name, population, area, population density
+        let countryData = [
+            ["Afghanistan", 37209007, 652860, 57],
+            ["Albania", 2938428, 27400, 107],
+            ["Algeria", 42679018, 2381740, 18],
+            ["Andorra", 77072, 470, 164],
+            ["Angola", 31787566, 1246700, 25],
+            ["Antigua and Barbuda", 104084, 440, 237],
+            ["Argentina", 45101781, 2736690, 16],
+            ["Armenia", 2936706, 28470, 103],
+            ["Australia", 25088636, 7682300, 3],
+            ["Austria", 8766201, 82409, 106],
+            ["Azerbaijan", 10014575, 82658, 121],
+            ["Bahamas", 403095, 10010, 40],
+            ["Bahrain", 1637896, 760, 2155],
+            ["Bangladesh", 168065920, 130170, 1291],
+            ["Barbados", 287010, 430, 667],
+            ["Belarus", 9433874, 202910, 46],
+            ["Belgium", 11562784, 30280, 382],
+            ["Belize", 390231, 22810, 17],
+            ["Benin", 11801595, 112760, 105],
+            ["Bhutan", 826229, 38117, 22],
+            ["Bolivia", 11379861, 1083300, 11],
+            ["Bosnia and Herzegovina", 3501774, 51000, 69],
+            ["Botswana", 2374636, 566730, 4],
+            ["Brazil", 212392717, 8358140, 25],
+            ["Brunei", 439336, 5270, 83],
+            ["Bulgaria", 6988739, 108560, 64],
+            ["Burkina Faso", 20321560, 273600, 74],
+            ["Burundi", 11575964, 25680, 451],
+            ["Côte d'Ivoire", 25531083, 318000, 80],
+            ["Cabo Verde", 560349, 4030, 139],
+            ["Cambodia", 16482646, 176520, 93],
+            ["Cameroon", 25312993, 472710, 54],
+            ["Canada", 37279811, 9093510, 4],
+            ["Central African Republic", 4825711, 622980, 8],
+            ["Chad", 15814345, 1259200, 13],
+            ["Chile", 18336653, 743532, 25],
+            ["China", 1420062022, 9388211, 151],
+            ["Colombia", 49849818, 1109500, 45],
+            ["Comoros", 850910, 1861, 457],
+            ["Congo (Congo-Brazzaville)", 5542197, 341500, 16],
+            ["Costa Rica", 4999384, 51060, 98],
+            ["Croatia", 4140148, 55960, 74],
+            ["Cuba", 11492046, 106440, 108],
+            ["Cyprus", 1198427, 9240, 130],
+            ["Czech Republic", 10630589, 77240, 138],
+            ["Democratic Republic of the Congo", 86727573, 2267050, 38],
+            ["Denmark", 5775224, 42430, 136],
+            ["Djibouti", 985690, 23180, 43],
+            ["Dominica", 74679, 750, 100],
+            ["Dominican Republic", 10996774, 48320, 228]
+        ];
+
+        console.log(countryData);
+
+        // console.log(countryData);
+        // Define your arrays here:
+        // let countries=["Afghanistan","Bangladesh","Central African Republic","Czech Republic"];
+        let firstCountry = countryData[0][0];
+        console.log("first country: ", firstCountry);
+
+        let countries = [countryData[0][0], countryData[13][0], countryData[33][0], countryData[44][0]];
+        let populations = [countryData[0][1], countryData[13][1], countryData[33][1], countryData[44][1]];
+        let areas = [countryData[0][2], countryData[13][2], countryData[33][2], countryData[44][2]];
+        let densities = [countryData[0][3], countryData[13][3], countryData[33][3], countryData[44][3]];
+
+        // The following lines will log your variables to the console:
+        console.log(countries);
+        console.log(populations);
+        console.log(areas);
+        console.log(densities);
+
+        /*
+        W3schools:
+        var hege = ["Cecilie", "Lone"];
+        var stale = ["Emil", "Tobias", "Linus"];
+        var children = hege.concat(stale);
+        */
+        let flattened = countries.concat(populations, areas, densities);
+        console.log(flattened);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
