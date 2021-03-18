@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Challenges</title>
+</head>
+
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>C#</li>
+        <li>CSS</li>
+    </ul>
+
+    <script>
+        /*
+        NOTE:
+        - Use this simple challenge with Text values only (for now)
+        - Then try to use with numeric values later after these topics:
+        > function in general
+        > anonymous function (a function with no name)
+        > the return statement of function or void function
+        > function parameters and arguments
+        */
+
+        // Part 1:
+        // create an array of string
+        let myArray1 = ['HTML', 'Python', 'JavaScript', 'PHP', 'C#', 'CSS'];
+
+        // Testing:
+        console.log(myArray1);
+
+        // To review how to access each element in the array:
+        console.log(myArray1[0]); // the first element => HTML
+        console.log(myArray1[1]); // the second element => Python
+        console.log(myArray1[2]); // the third element => JavaScript
+        console.log(myArray1[3]); // the forth element => PHP
+        console.log(myArray1[4]); // the fifth element => C#
+        console.log(myArray1[5]); // the sixth element => CSS
+
+        document.write("<ul>");
+        for (let i = 0; i < myArray1.length; i++) {
+            document.write("<li>" + myArray1[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        // Part 2:
+        myArray1.sort(); // remember that sort will change the original array
+        document.write("Asc Order: <ul>");
+        for (let i = 0; i < myArray1.length; i++) {
+            document.write("<li>" + myArray1[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        myArray1.reverse();
+        document.write("Desc Order: <ul>");
+        let j = 0;
+        while (j < myArray1.length) {
+            document.write("<li>" + myArray1[j] + "</li>");
+            j++;
+        }
+        document.write("</ul>");
+
+        // ******************************************************
+        // Part 1:
+        /*
+        1. Create an array that contains random numbers (numeric values only)
+        5-7 numbers (element) with any variable name you prefer
+        */
+        var myNumbers = [100, 90, 5, 8, 3, 150, 0, 200, 56, 23];
+
+        /*  
+        0 100 150 23 3 
+        */
+
+        /*
+        2. Using for loop with document.write() to print/output your array(list) of numbers.
+        the output should be formatted with ul and li
+        Print the array as its
+        Example:
+        •	100
+        •	150
+        •	300
+        •	200
+        •	500
+
+        HINT: You will need to use the array length property to determine the array length
+        to know how many times you need to loop
+
+
+        */
+        document.write("<ul>");
+        for (let i = 0; i < myNumbers.length; i++) {
+            document.write("<li>" + myNumbers[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        /*
+        3. sort (ascendingly by default) the array then print them again using the same loop structure
+        as the previous task
+
+        HINT (final assignment): 
+        -  using the array method sort() for sorting the array (Asc)
+        - We have to learn how to use function first!
+        - W3 schools: https://www.w3schools.com/jsref/jsref_sort.asp
+        - MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+        */
+        myNumbers.sort();
+        // testing:
+        console.log(myNumbers);
+
+
+        /*
+        4. sort (descending) the array then print them again using the same loop structure
+
+        HINT: Notice that the array is already sorted before, you can just reverse the elements.
+        you can use reverse() method
+        */
+    </script>
+</body>
+
+</html>

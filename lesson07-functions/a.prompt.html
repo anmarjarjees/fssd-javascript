@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS prompt() function</title>
+</head>
+
+<body>
+    <script>
+        /*
+       Review: Examples of some JavaScript built-in functions or methods that we have used:
+        - alert()         
+        - parseFloat()
+        - ParseInt()
+        - document.write()
+        - console.log()
+        - prompt() => to be used in this file
+       */
+
+        // instead of hard coding the varaible values:
+        /*
+        var exam1 = 90;
+        var exam2 = 92;
+        */
+
+        /*
+        prompt() => like alert() to have pop window with option to input data
+
+        This function will return a string data type:
+        example:
+        Alex => "Alex"
+        90 => "90"
+        72.81 => "72.81"
+        true = "true"
+        */
+
+        /*
+        alert("test"); => using alert() as a function() 
+        window.alert("test"); => using alert() as a method of window object
+        */
+
+        var exam1 = prompt("Enter you first exam:"); // 90 => "90"
+        // remember that prompt() is also a method of window!
+        var exam2 = window.prompt("Enter you second exam:");
+
+        // Testing:
+        console.log(exam1); // 90
+        console.log(exam2); // 88
+
+        // let's try to check their data type:
+        // Nested function
+        console.log(typeof (exam1)); // string
+        console.log(typeof (exam2)); // string
+
+        // two string data types:
+        // output their total:
+        // In JS, the + can be used/works with numbers and text
+        // "90"+"88" => JS will use + for concatenating 
+        console.log(exam1 + exam2); // 178 => 9088
+
+        // one more test: exam1 - exam2:
+        // "90" - "88" => Js knows that - can only be used with sub operator with numbers
+        // "90" - "88" => Js will use 90 as number - 88 as number = 2 
+        console.log(exam1 - exam2); // 2
+
+        console.log(exam1 * exam2); // 7920
+
+        console.log(exam1 / exam2); // 1.0227272727272727
+
+        // The question: How can we find the total of "90" and "88" as numbers?
+        // We can the two methods: parseInt() and parseFloat() of Number Constructor:
+        Number.parseFloat();
+        Number.parseInt();
+        // we can ignore the "Number" and just write the function name
+        console.log(parseFloat(exam1) + parseFloat(exam2)); // 178
+
+
+        // another better way: 
+        // two lines:
+        var mark1 = prompt("Enter your first mark:"); // 90 as a number (prompt) => "90" as a string
+        mark1 = parseFloat(mark1);
+        // take the advantage of nesting functions
+        var mark2 = parseFloat(prompt("Enter your second mark:"));
+
+        // total = 90 + 88 = 178
+        var total = mark1 + mark2;
+        document.write("<br>The total of the two marks is: " + total);
+
+        // multiply = 90 * 88 = 90 * 92 = 8280
+        var multiply = mark1 * mark2;
+        document.write("<br>The multiplication of the two marks is: " + multiply);
+
+        // the same rules for / and -
+        var avg = total / 2;
+        document.write("<br>The average of the two marks is: " + avg);
+
+        /*
+        Based on these two values: 90 and 88
+        The total of the two marks is: 178
+        The multiplication of the two marks is: 7920
+        The average of the two marks is: 89
+        */
+    </script>
+</body>
+
+</html>
