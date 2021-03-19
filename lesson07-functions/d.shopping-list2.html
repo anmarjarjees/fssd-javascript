@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List#2</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+          Task1:
+          Create an array based on the user input named "userList"
+          - The user has to insert a list of numbers => save it into an array
+          - We need to know first, how many numbers the user need to insert
+          to help us set a for loop to keep ask the user the same question
+
+          with prompt:
+          if the user inputs ABC = "ABC"
+          if the user inputs 123 = "123"
+        */
+
+        var numOfItems = parseInt(prompt("How many items did you buy?"));
+        console.log(numOfItems);
+
+        // declare the array "userList" to the price of each item
+        let userList = [];
+        // since we don't have to use i as the array index
+        // we can set its initial value to 1 (to count from 1 as we do in our normal life)
+        for (let i = 1; i <= numOfItems; i++) {
+            userList.push(parseFloat(prompt("Enter the price for item " + i + ": ")));
+        }
+        console.log(userList);
+
+        // Print the array values with for loop using HTML ul element and li for each item: 
+        document.write("<h2>Shopping List Item Prices:</h2>");
+        document.write("<ul>");
+        // since we have to use the loop counter i to represent the array index
+        // we need to set its initial value to be 0
+        for (i = 0; i < userList.length; i++) {
+            document.write("<li> CAD $" + userList[i] + "</li>");
+        }
+        document.write("</ul>");
+
+        /*
+         Task2:
+         Find the total for all the numeric values inside userList array:
+         as we did before:
+         - var total = the formula (equation) to find the total
+         - var average =  the formula (equation) to find the average
+         var total = the value in index 0 + the value in index 1 + the value in index2 + and so on...
+
+        Example of "3" items:
+        CDN $21.61
+        CDN $18.35
+        CDN $6.39
+
+        to find the total for these three items:
+        var total = userList[0] + userList[1] + userList[2] + ... + userList[x] 
+
+       */
+        // will fail! only 3 items (no more no less):
+        // var total = userList[0] + userList[1] + userList[2] 
+
+        var total = 0;
+        // assuming we have these 3 values: 100, 150, 300
+        for (let i = 0; i < userList.length; i++) {
+            total = total + userList[i];
+            /*
+           First iteration when i=0 => total = 0 + 100 => 100
+           Second iteration when i=1: total = 100 + 150 => 250
+           Third iteration when i=2: total = 250 + 300 => 550
+           and so on for the fourth and fifth iteration
+           */
+
+            // OR:
+            // total += userList[i];
+        }
+        document.write("<br>The total is: " + total);
+
+        // Having fun!
+        // Let's try to find the result of multiplying all the numeric values inside myList array:
+        // assuming we have these 3 values: 100, 150, 300
+        // 100 * 150 * 300
+
+        // We do need to initialize the value of "result" variable
+        // Since we need to use * so we have to set our initial value to 1
+        var result = 1;
+        // assuming we have these 3 values: 100, 150, 300
+        for (let i = 0; i < userList.length; i++) {
+            result = result * userList[i];
+            // OR:
+            // result *= userList[i];
+        }
+        document.write("<br>The result of the multiplication is: " + result);
+    </script>
+</body>
+
+</html>

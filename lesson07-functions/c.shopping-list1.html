@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List#1</title>
+</head>
+
+<body>
+    <script>
+        /*
+          Task1:
+          Create an array based on our hard coding values input named "myList"
+        */
+
+        var myList = [100, 150, 300, 200, 500];
+
+        // Print the array values with "for loop" using HTML ul element and li for each item:
+        // We can declare the loop counter before for loop to "Global Variable"
+        // to be used with any other loop we want to add
+        let i;
+        document.write("<ul>");
+        for (i = 0; i < myList.length; i++) {
+            document.write("<li>" + myList[i] + "</li>");
+        }
+        document.write("</ul>");
+
+
+        /*
+          Task2:
+          Create an array based on the user input named "userList"
+          - The user has to insert a list of numbers => save it into an array
+          - We need to know first, how many numbers the user need to insert
+          to help us set a for loop to keep ask the user the same question
+
+          with prompt:
+          if the user inputs ABC = "ABC"
+          if the user inputs 123 = "123"
+        */
+
+        // Bad way of coding!
+        // 1) the same statement are repeated 
+        // 2) it's repeated for fixed number of times: 5 
+        // var item1 = prompt("Enter your numeric value: ");
+        // var item2 = prompt("Enter your numeric value: ");
+        // var item3 = prompt("Enter your numeric value: ");
+        // var item4 = prompt("Enter your numeric value: ");
+        // var item5 = prompt("Enter your numeric value: ");
+
+        // First: ask the user to insert how many numbers they want to add:
+        // prompt() will return a string data type:
+        // to convert a number of string data type to a number of number data type
+        // parseFloat(x) => works with both float / integers
+        // parseInt(x) => can except integers (will ignore and decimal)
+        // Number(x) constructor
+        var numOfItems = parseInt(prompt("How many items/elements you want to add to your list?"));
+        console.log(numOfItems);
+
+        var numOfItems; // in JS this will work and return the same previous value
+        // but using let for more than one time for same varaible will generate an error
+        console.log(numOfItems);
+
+        /*
+        Example from a previous lecture:
+        - Declare an empty array:
+        var myBooks = [];
+        - To put/insert the values, we can use the index syntax:
+        myBooks[0] = "Beginning JavaScript";
+        myBooks[1] = "Adobe Dreamweaver";
+        myBooks[2] = "HTML and CSS Web Design";
+
+        We can use the same logic below:
+        */
+
+        let userList = [];
+        // reuse the same varaible "i" (no let or no var), just reset its value again 
+        // we set the initial value of i to 0 => to be used as the array index
+        let count = 1;
+        for (i = 0; i < numOfItems; i++) {
+            // Nested Functions: we used two functions => prompt() first then parseFloat()
+            // using the the dec/inc operator: ++i or i++ or --i or i--
+            // we don't want to use the loop count i because
+            userList[i] = parseFloat(prompt("Enter your numeric value " + count++ + ": "));
+        }
+        console.log(userList);
+
+        // We can try another way by using the array method push():
+        /*
+        W3School: To review:
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.push("Kiwi");
+        the result: Banana,Orange,Apple,Mango,Kiwi,Kiwi
+        */
+
+        alert("Perfect! You have finished creating your first list, now you can start the next list")
+        // let's reset/empty the "userList":
+        userList = [];
+        // since we don't have to use i as the array index
+        // we can set its initial value to 1 (to count from 1 as we do in our normal life)
+        for (i = 1; i <= numOfItems; i++) {
+            // push() => Appends new elements to the end of an array,
+            // Nested Function: we used three functions!
+
+            // let's take the advantage of the loop counter "i" that starts with 1:
+            // by using the concatenating + to type:
+            // Enter your numeric value 1: => Enter your numeric value 2: => and so on...
+            userList.push(parseFloat(prompt("Enter your numeric value " + i + ": ")));
+        }
+        console.log(userList);
+
+
+        // Print the array values with for loop using HTML ul element and li for each item:    
+        document.write("<ul>");
+        // since we have to use the loop counter i to represent the array index
+        // we need to set its initial value to be 0
+        for (i = 0; i < userList.length; i++) {
+            document.write("<li>" + userList[i] + "</li>");
+        }
+        document.write("</ul>");
+    </script>
+</body>
+
+</html>

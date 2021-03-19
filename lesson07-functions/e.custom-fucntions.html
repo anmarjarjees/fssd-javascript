@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Function</title>
+</head>
+
+<body>
+    <script>
+        /*
+           Now we will create our custom functions
+  
+           Method and Function:
+           Yes we use these two words interchangeably or we always switching between them
+           like saying function or method but they are not exactly the same:
+  
+           Method: is a function attached to an object using the dot notation
+           object.methodName() ==> like console.log() or document.write()
+  
+           function: is just a function name by itself
+           functionName() ==> like parseFloat() or parseInt() or prompt or alert()
+
+           Notice that adding window will make them methods:
+           method: window.alert()
+           method: window.prompt()
+  
+           We will have more explanation about objects later
+  
+  
+          The function syntax:
+  
+          function myFunctionName(null or x numbers of parameter) {
+  
+          }
+  
+          function parameters are comma separated variables or values
+  
+          example:
+          prompt ("Enter your number",0);
+        */
+
+        // simple and basic example of creating a custom function
+
+        // Problem: Create our function: to print "here is my first function" using p element
+        /*
+            function functionName() {
+                the function code goes here...
+            }
+
+            functionName => any name that makes sense to us
+            We CANNOT use JS reserved keyword for functions names
+        */
+
+
+        // step1. Create the function:
+        // let's name it "viewResult"
+        // function signature: viewResult()
+        // this function DOESN'T any parameter/argument
+        function viewResult() {
+            document.write("<p>Here is my first function!</p>");
+        }
+
+        /*
+        Creating a function is not enough to run or execute it!
+        If you want to use your function we have to call it
+        */
+        // step2: is to call (Execute) the function
+        // to call a function we just put the name:
+        viewResult();
+
+        // let x = viewResult(); // will output the function
+
+        // I want to print: Hi there, I hope you like JavaScript
+        // this text ""Hi there, I hope you like JavaScript" will never being used
+        viewResult("Hi there, I hope you like JavaScript"); // Here is my first function!
+
+
+        /*
+        functions can accept arguments (parameters) which means the info we put inside the ()      
+        */
+        // to make our function more useful, we can change it to accept parameter(s) [data]
+        // creating a new function: "view()"
+        // function signature ==> the function parts
+        // this function has the variable named "text" which the place holder for the real values
+        // the function variable "text" can only be used inside this function => local variable
+        // the variable "text" is called "Parameter"
+        // The values that we pass to the "text" parameter are called arguments.
+        function view(text) {
+            // testing
+            // console.log(text);
+            document.write("<p>" + text + "</p>");
+        }
+
+        // output: "<p>My subject is JavaScript</p>"
+        document.write("<p>My subject is JavaScript</p>");
+        // instead of keep typing document.write()
+        // we can simply use our 4-letter function "view"!!!
+        // if you want to pass data to your function
+
+        // the function parameter "text" will receive the argument "My subject is JavaScript"
+        view("My subject is JavaScript");
+
+        // the function parameter "text" will receive the argument "JavaScript is a very good language to learn"
+        view("JavaScript is a very good language to learn");
+        view("Wow, using this function helped me to reduce my typing");
+        view("All the text inclosed with the p element");
+
+        // Task: another advanced example:
+        /*
+        1- Create a new function named display()
+        2- this function accepts two parameters:
+            - The text that we want to be printed using js built-in method "document.write()"
+            - The html element (tag) that we want to be around our text! :-)
+        
+        Example: calling the function:
+        display("Learning JavaScript","h2");
+        the two arguments/parameters are string data type
+
+        this should written as: <h2>Learning JavaScript</h2>
+        */
+
+        // this function has two parameters (text and tag) to accept two arguments:
+        // the first one: text ==> the content we want to display
+        // the second one: tag ==> the HTML element/tag we like to use
+        // What if the user/programmer didn't put any tag!
+        // our function will type: <undefined>the text</undefined> 
+        // Default Parameters
+        // the user/we can specify the tag, or if we don't specify
+        // by default JS will use its default value
+        // parameterName = a default value
+        // example: tag = "p" or x=2
+        function display(text, tag = "p") {
+            document.write("<" + tag + ">" + text + "</" + tag + ">");
+        }
+
+
+        // Calling our function "display()"
+        display("Here is my heading 1", "h1"); // => <h1>Here is my heading 1</h1>
+        // instead of using:
+        document.write("<h1>Here is my heading 1</h1>");
+        display("Learning JavaScript is interesting!", "h2");
+        display("JavaScript is a front-end programming language", "h3");
+        display("I hope that you really like JavaScript", "p");
+        // the last call, no tag element is passed! our function will use the p element
+        display("I am just a pure text!");
+
+        /*
+        Task:
+        create a function that accepts two numeric values [two placeholder variables, parameters]
+
+        These two numbers (the two numeric variable) will be used with if condition:
+        use if condition to output (document.write) the maximum value of these two numbers
+        name your function "maxNum()"
+    
+        Examples: 
+        if we input 10 and 12 => the function should output: The maximum number is 10
+        if we input 25 and 18 => the function should output: The maximum number is 25
+        */
+
+        // your task is create this function below:
+        // 1. create the function
+        // camelCase for naming our function: maxNum()
+        // let's use a for the first number and b for the second one
+        function maxNum(a, b) {
+            // remember that a and b are just local variables
+            // to be used inside this function only (We CANNOT access their values outside)
+            if (a > b) {
+                // we can use JS method document.write:
+                document.write("<p>The maximum number is " + a + "</p>");
+            } if (b > a) {
+                document.write("<p>The maximum number is " + b + "</p>");
+            } else {
+                document.write("<p>both numbers are equal</p>");
+            }
+        }
+
+        // below I am calling my function:
+        // 2. call the function to be run
+        maxNum(10, 12);
+        maxNum(-10, 2);
+        maxNum(100, 120);
+        maxNum(5, 5);
+
+        // Task: Create a function to check if the number is even or odd
+        // this function accepts one parameter (arguments) 
+        // which is the number that we want to test (even/odd)
+        // we only need to test one number
+        // if the number is even => this function should print/output: "Your number is even"
+        // else this function should print/output: "Your number is odd"
+        // Let's name it "testEvenOdd"
+
+        /*
+        In Math, we can check if the number is even/odd:
+        - even numbers divided by 2 => no remainder (whole number) => in JS the remainder is 0
+        - odd numbers divided by 2 => remainder (floating number)
+
+        = 75/2 => the full result
+        = 74/2 => the full result
+
+        To get the remainder of div operation in JS, we can use the modulo "%" operator
+        then we can check the remainder: if it's 0 (no remainder) => it means this number is even
+        else it means this number is odd
+
+        8 % 2 => 0 (8 is even)
+        7 % 2 => 1 (7 is odd)
+        */
+        function testEvenOdd(number) {
+            if (number % 2 == 0) {
+                document.write("<p>Your number is even.</p>");
+            } else {
+                // we can use JS method document.write also:
+                // document.write("<p>Your number is odd.</p>");
+                // Or we can call our previous function "display()"
+                // Let's use this custom function instead of document.write() for learning:
+                display("Your number is odd.");
+                // Remember that "display()" function has to be available with this "testEvenOdd()" function
+            }
+
+        }
+
+        // call our function:
+        testEvenOdd(234); // Your number is even.
+        testEvenOdd(987645); // Your number is odd.
+        testEvenOdd(34); // Your number is even.
+        testEvenOdd(1); // Your number is odd.
+        testEvenOdd(71); // Your number is odd.
+    </script>
+</body>
+
+</html>
