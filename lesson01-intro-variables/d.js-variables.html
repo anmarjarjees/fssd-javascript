@@ -146,6 +146,39 @@
         Note: Remember that we, as programmers, use console.log to output our results,
         or testing our code but for the end-user we can use the alert function for the time being. Later in the next chapters we will learn another more user friendly function
         */
+
+
+        var college = "ABC Advanced Institute";
+        console.log(college);
+        college = "XYZ Design Institute";
+        console.log(college);
+        // *********************************************************************************
+        // the const keyword:
+        var language1 = "javascript";
+        language1 = "python";
+
+        const language2 = "php"; // it's better to name the constant LANGUAGE2
+        /* Once we named our const variable language2       ,
+          - we can not use "language2" for var or let
+          - we can not change its value anymore
+        */
+        // language2 = "ruby"; // Error: Assignment to constant variable.
+
+        /*
+        Example of using constant:
+        MDN: Constants can be declared with "uppercase" or "lowercase", 
+        but a common convention is to use all-uppercase letters.
+        */
+        const CBC = "Canadian Business College"; // string, number, bool
+        console.log(CBC);
+        // The following code will generate this error: Assignment to constant variable:
+        // CBC = "Caribbean Business College";      
+
+        /*
+            LMS Hint:
+            The let keyword is the more modern way of declaring variables,
+            so we recommend sticking with that.
+        */
     </script>
 </body>
 

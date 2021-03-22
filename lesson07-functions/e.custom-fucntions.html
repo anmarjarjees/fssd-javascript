@@ -224,7 +224,6 @@
                 display("Your number is odd.");
                 // Remember that "display()" function has to be available with this "testEvenOdd()" function
             }
-
         }
 
         // call our function:
@@ -233,6 +232,158 @@
         testEvenOdd(34); // Your number is even.
         testEvenOdd(1); // Your number is odd.
         testEvenOdd(71); // Your number is odd.
+
+        document.write("<hr>");
+
+        /*
+          most of the time, we don't want the function to output (print) the result into the browser, 
+          we just need to get the result and save it into a variable.
+      	
+          Task: 
+          Create a function that:
+          - Accepts two numeric values [two placeholder variables, parameters] 
+          these two variables will be numbers to represent:
+          exam marks, or assignments marks, or project marks, etc..
+          
+          - Find the average of these two numbers (two marks)
+          - Return (Not printing) the result (average value), 
+          so this function will have something new which is "returning a value". 
+          We don't want this function to print the result, just give us (return) the result 
+          In this case will need to use the JavaScript keyword "return"
+
+          so to summarize;
+          our own custom functions can return values
+          like other built-in JavaScript functions that return values.
+
+          Very Important Note: 
+          Please remember that return will:
+          - return a value
+          - terminate my function (so anything written after the return keyword will not be executed)
+          
+          for example:
+          we used "prompt()" to return whatever the user inputs (as a string):
+          var userName = prompt("What's your name?");
+
+          var avg = (number1+number2)/2
+      */
+
+
+        // 1. Create: 
+        // with the function's name we also use camelCase
+        // accepts two parameters: value1 and value2
+        // using them to find the average of any two numeric values
+        function findAverage(value1, value2) {
+            // just find the average: 
+            // the variable "average" is declared inside this function (local variable)         
+            let average = (value1 + value2) / 2;
+            /*
+            this function is supposed to return the value of the average
+            as the name indicates "findAverage", 
+            and that's why it's better to remove the code for printing which is document.write.
+            */
+            // document.write("<br>" + average);
+
+            /*
+            return keyword will:
+            - return the value of the local variable "average" inside the function
+            to any global variable outside the function
+            - Terminate my function
+            */
+            return average;
+            // anything we write after return will not run
+            alert("Hi there, can you see me!");
+
+            /*
+            The return keyword can return one value (variable) or a formula (equation):
+            We can summarize the steps of this function:
+            */
+            // return (value1 + value2) / 2;
+        }
+
+
+
+        // 2. Call: 
+        // document.write(findAverage(90, 80)) // undefined => before adding return keyword
+
+        // this will not print anything, why? because there is no document.write():
+        findAverage(90, 80); // will not output anything => our function only return value
+
+        document.write(findAverage(75, 78)); // doc.write will output the returned value of average
+        // document.write("The Average is: " + average); // Error: average is not defined
+        document.write("The average of 90 and 82 is: " + findAverage(90, 82));
+        document.write("<br>");
+        document.write("The average of 92 and 87 is: " + findAverage(92, 87));
+
+        // We can call our function and save the returned value into variables:
+        var avg1 = findAverage(92, 95);
+        var avg2 = findAverage(82, 83);
+
+
+        // Task: ask the user to insert two numbers (exams) and find the average
+        // We can put this function into a simple demo:
+        // let's use our function in different example:
+
+        var exam1 = parseFloat(prompt("enter your first exam:"));
+        var exam2 = parseFloat(prompt("enter your second exam:"));
+
+        // passing to our function the variables exam1 and exam2
+        var examAvg = findAverage(exam1, exam2);
+        // using complex text and variables concatenating:
+        document.write("<p> the average of " + exam1 + " and " + exam2 + " is: " + examAvg + "</p>");
+
+
+
+        // instead of typing document.write()
+        // we can use our function view()
+        view("the average of " + exam1 + " and " + exam2 + " is: " + examAvg);
+        document.write("<hr>");
+        // or we can call our function display():
+        display("the average of " + exam1 + " and " + exam2 + " is: " + examAvg, "h3");
+        display("the average of " + exam1 + " and " + exam2 + " is: " + examAvg, "h4");
+        // we left the second argument empty so the parameter value will be = default
+        display("the average of " + exam1 + " and " + exam2 + " is: " + examAvg);
+
+        // Example from LMS:
+        function multiply(a, b) {
+            // The function takes two parameters a and b
+            // and returns the product 
+            return a * b;
+            /*
+            The long way:
+            ver product = a * b;
+            return product;
+            */
+        }
+
+        // Call the multiply function with the arguments 10 and 2.
+        // 10 becomes the value of a and 2 becomes the value of b.
+        // These two numbers "10 and 2" are the arguments that are passed to the function
+        multiply(10, 2); // you might want to try this with other numbers 
+        document.write(multiply(10, 2));
+
+
+        // funny example about return:
+        function total(a, b) {
+            // any code we write after the return
+            return a + b; // remember that return will stop my function
+            // any code we write after return will never by executed:
+            alert("you will not see me!");
+            dgdfg;
+            dfgdf;
+            blabla;
+        }
+
+        console.log(total(5, 7)); // 12
+
+        /*
+         If variables created in the global scope are accessible and visible to all scripts,
+         then it follows that variables created in local scope have more limited visibility.
+         Variables defined within a JavaScript function are local to that function.
+         They are not visible or accessible from outside the function.
+         Whereas global variables live for the lifetime of our application,
+         local variables exist while the function is executing
+         */
+
     </script>
 </body>
 
