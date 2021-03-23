@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List New Idea</title>
+</head>
+
+<body>
+    <script>
+        /*
+       Problem:
+       We will ask the user to input his/her numbers in one input box (one shot!)
+       But with a space between each number using the same function prompt():
+
+       Example: "10 34 27 55 12 89 20"
+       The user input cannot be a number, it's a string of spaces and numbers
+
+       Issue: what if the user put spaces before and/or after their list of numbers?
+       we need first to trim the space before and after the string
+
+       using the built-in JS string method named split()
+       W3schools: https://www.w3schools.com/jsref/jsref_split.asp
+        */
+        var userNumbers = prompt("Please enter your numeric values with a space between them:");
+        userNumbers = userNumbers.trim();
+
+        // Or we can use the chaining functions(methods) way:
+        // instead of two lines, we can write in one line
+        // var userNumbers = prompt("Please enter your numeric values with a space between them:").trim();
+
+        // testing:
+        console.log("userNumbers: ", userNumbers);
+
+        /*
+        string method => split()
+        Split a string into substrings using the specified separator and return them as an array.
+        Notice that the delimiter parameter for this function should by only a space
+
+        This method will return: string[] => an array of string data type 
+
+        Examples:
+        if the delimiter is a space => myString.split(" ");
+
+        if the delimiter is , => myString.split(",");
+        */
+        let userNumberArray = userNumbers.split(" ");
+
+
+        // testing:
+        console.log("userNumbersArray: ", userNumberArray);
+
+        // now we have an array "userNumbersArray" 
+
+        // Task 1:
+        // Find the total of all the prices in this array
+        // for loop to find the total (while/do while)
+        // using the length property
+
+        // Task 2: 
+        // for fun find the average of the prices :-)
+        // you can divide the total (from the fist task) by the length of the array to find the average
+
+    </script>
+</body>
+
+</html>
