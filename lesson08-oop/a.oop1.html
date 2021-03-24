@@ -52,6 +52,10 @@
             The last key-value pair can have a trailing or hanging comma, but it’s not necessary (optional).
 
             A value can be of any data type: boolean, function, string, integer and even other objects.
+
+             key: value => owner: "Martin" (inside the object)
+             var = value => let owner = "Martin"
+             
             */
             owner: "Martin",
             year: 2017,
@@ -150,7 +154,7 @@
             sea: true, // boolean value
             islands: 1000,
             language: "croatian",
-            //adding a method for tis object named "bio":
+            //adding a method for this object named "bio":
             bio: function () {
                 console.log(this.name + " is a country with " + this.population + " people");
             }
@@ -200,6 +204,7 @@
             }
         }
 
+        // calling a method named hello()
         person.hello();
         // We can update properties, change their values. 
         // Use the same syntax: objectName.property and assign the new value to it:
@@ -271,6 +276,53 @@
         delete tree.height;
         console.log(tree);
 
+        // The issues:
+        // we have to repeat the same keys but with different values for each object we create
+        // The first object has the key "flooring" and we didn't add this key for the rest
+        let house1 = {
+            model: "Astra",
+            bedRooms: 3,
+            guestRoom: true,
+            finishedBasement: true,
+            kitchen: 1,
+            garage: 2,
+            bathRooms: 2,
+            flooring: "laminate"
+        }
+
+        let house2 = {
+            model: "Presto",
+            bedRooms: 2,
+            guestRoom: false,
+            finishedBasement: false,
+            kitchen: 1,
+            garage: 1,
+            bathRooms: 2
+        }
+
+        let house3 = {
+            model: "Galaxy",
+            bedRooms: 3,
+            guestRoom: true,
+            finishedBasement: false,
+            kitchen: 1,
+            garage: 2,
+            bathRooms: 2
+        }
+
+        let house4 = {
+            model: "Horizon",
+            bedRooms: 4,
+            guestRoom: true,
+            finishedBasement: true,
+            kitchen: 2,
+            garage: 3,
+            bathRooms: 2
+        }
+
+        // Example to access house1 properties:
+        console.log("Bathrooms Number: ", house1.bathRooms);
+        console.log("Garage Number: ", house1.garage);
     </script>
 </body>
 
