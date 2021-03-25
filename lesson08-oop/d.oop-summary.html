@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP all in one</title>
+</head>
+
+<body>
+    <script>
+        // The need for functions:
+        // keep repeating the same message for many times just changing two values: 
+        // full name
+        // the color
+        // imagine typing all these lines 
+
+        /*
+        console.log ("Hello, my name is Martin Smith and my favorite color is yellow. ");
+        console.log ("Hello, my name is John Doe and my favorite color is blue. ");
+        console.log ("Hello, my name is Jane Smith and my favorite color is green. ");
+        console.log ("Hello, my name is Alex Chow and my favorite color is red. ");
+        console.log ("Hello, my name is Sarah Grayson and my favorite color is pink. ");
+        */
+
+        function person(personName, personColor) {
+            console.log("Hello, my name is " + personName + "  and my favorite color is " + personColor + ". ");
+        }
+
+        // calling my function person()
+        person("Sam Simpson", "black");
+        person("James Dean", "white");
+        person("Martin Smith", "yellow");
+
+
+        // or to store the variables:
+        var martinName = "Martin Smithson";
+        var martinColor = "blue";
+        person(martinName, martinColor);
+
+        // but we can do better by using object:
+        // below we are creating an object for John Doe:
+        var john = {
+            // give John a property of name
+            name: "John Doe",
+            // give John a property of favoriteColor
+            favoriteColor: "Blue"
+        }
+
+        // let's try to print John's full name and color
+        // calling our function person() => accept two parameters: name and the color
+        // now we can reference those properties:
+        person(john.name, john.favoriteColor);
+
+
+        /*
+       now to take the advantages of using object 
+       by adding functions to the objects:
+
+       object can have properties and methods:
+       - To access the object properties => objectName.propertyName
+       - To access the object methods => objectName.methodName()
+       */
+        var alex = {
+            // give John a property of name
+            fullName: "Alex Chow",
+            // give John a property of favoriteColor
+            favoriteColor: "Brown",
+            // now greet will not contain data, but it will contain behavior (function => method)
+            greet: function () {
+                // console.log("Hello there! My name is \"Alex Chow\" and my favorite color is \"Brown\".");
+                console.log("Hello there! My name is " + alex.fullName + " and my favorite color is " + alex.favoriteColor + ". ");
+                // or using "this" keyword to refer to the current object "alex": 
+                console.log("Hello there! My name is " + this.fullName + " and my favorite color is " + this.favoriteColor + ". ");
+            }
+        }
+
+        // we want to access the greet() function/method of the object named alex
+        alex.greet();
+
+        /*
+        So object is an entity that has data and behavior
+        or Nouns and Verbs
+        ==================
+        car:
+        specs (nouns): white color, 4WD, Nissan, 2012
+        action (verbs): drive forward, turn left, turn right, reverse, etc....
+        */
+
+        // now creating a new object for Jane whose favorite color is green
+        // notice the way below is again too much repetitive, so we will change it later
+        var jane = {
+            fullName: "Jane Simpson",
+            favoriteColor: "green",
+            // now greet will not contain data, but it will contain behavior
+            greet: function () {
+                console.log("Hello there! My name is " + jane.fullName + " and my favorite color is " + jane.favoriteColor + ".");
+                // or using: 
+                console.log("Hello there! My name is " + this.fullName + " and my favorite color is " + this.favoriteColor + ".");
+            }
+        }
+
+        // then call the object method:
+        jane.greet();
+
+        // again one more person:
+        var john = {
+            fullName: "John Doe",
+            favoriteColor: "blue",
+
+            greet: function () {
+                console.log("Hello there! My name is " + john.fullName + " and my favorite color is " + john.favoriteColor + ".");
+
+                console.log("Hello there! My name is " + this.fullName + " and my favorite color is " + this.favoriteColor + ".");
+            }
+        }
+
+        john.greet();
+
+        // Now it's not a good idea to repeat all the code for each new object (new person) that we need to add:
+        // so you can ignore all the code above and below is the better way:
+
+        // instead of creating an object directly on the fly (literal object), we can create a blueprint of an object:
+
+        // in OOP world: a reusable blueprint or recipe for objects is called "Class"
+        // so in JavaScript, we can create something like that "blueprint" using a Constructor function
+        // Constructor is your second required lab
+
+        /*
+        the question is the following block code is like a regular function so what's make is as a constructor function?
+        the answer is the way we need to use the function
+        */
+
+        // the naming convention is to write the blueprint with "PascalCase"
+        function Person1() {
+            // This Constructor Function "Person1" contains only one method (function)
+            this.greet = function () { // notice adding "this" keyword is mandatory
+                console.log("Hello there!");
+            }
+            /*
+                "this" keyword:
+                will allow our blueprint function to be flexible,
+                the value of "this" changes depending how and when and where this function is called:
+                so above: "this" keyword referred to sarah object and then to jim object
+            */
+        }
+
+        // creating these two instances of the constructor (class) named "Person1"
+        // keyword "new" is a JavaScript operator to create a new instance of a Person1 type
+        var sarah = new Person1();
+        // or in other words, the code above will create a new object using the Person1 blueprint
+        sarah.greet(); //Hello there!
+        var jim = new Person1();
+        jim.greet(); //Hello there!
+
+
+        // now customizing our blueprint to accept arguments
+        function Person2(fullName, favColor) {
+            /*
+            this => steve then this.name  => Steve Allison
+            We can't write the actual name "Steve Allison" as need to make this blueprint recyclable
+            this => kate then this.name  => Kate Willson
+            this => friend1 then this.name  => Will Smith
+            this => friend2 then this.name  => Sam Simpson
+            */
+            this.name = fullName;
+            this.color = favColor;
+            this.greet = function () {
+                // notice adding "this" keyword is mandatory:
+                console.log("Hello there! My name is " + this.name + " and my favorite color is " + this.color);
+            }
+        }
+
+        var steve = new Person2("Steve Allison", "Yellow");
+        var kate = new Person2("Kate Willson", "Red");
+        var friend1 = new Person2("Will Smith", "Black");
+        var friend2 = new Person2("Sam Simpson", "Blue");
+
+        steve.greet();
+        kate.greet();
+        friend1.greet();
+        friend2.greet();
+
+        var friend3 = new Person2("Allen Smith", "Yellow");
+        friend3.greet();
+    </script>
+</body>
+
+</html>

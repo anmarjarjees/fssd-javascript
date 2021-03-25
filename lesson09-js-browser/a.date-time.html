@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Properties and Methods of the "Date" object:
+
+        like any object, Date object has properties and methods()
+
+        The following methods for retrieving date values from Date object
+        - getDate()
+        - getDay()
+        - getMonth()
+        - getFullYear()
+        */
+
+        // First step is to create a new variable and assign to it a date object
+        /*
+        This will create a new Date object and initialize it to the current date and time
+        based on the client computer's clock:
+        */
+        var currentDate = new Date();
+
+        // testing
+        console.log(currentDate);
+        // Based on the current runtime:
+        // Thu Mar 25 2021 12:40:44 GMT-0400 (Eastern Daylight Time)
+
+        // Only the date:
+        // remember that currentDate is a Date object
+        // which means currentDate has all the properties and methods of Date object currentDate
+        // you can check W3schools: https://www.w3schools.com/js/js_date_methods.asp
+        console.log(currentDate.getDate()); // 25 => today is 25th of Sep (the date of today)
+
+        // First month "Jan" has the index of 0
+        // Second month "Feb" has the index of 1
+        // The following code will display the index of the current month
+        console.log(currentDate.getMonth()); // 2 for "Mar" in JS
+
+
+        /*
+            W3Schools:
+
+            - Get the weekday as a number (0-6) 
+            - In JavaScript, the first day of the week (0) means "Sunday", 
+            even if some countries in the world consider the first day of the week to be "Monday"
+        */
+        // Mon=1, Tue=2, and so on...
+        console.log(currentDate.getDay()); // 3 for "Wed"
+
+        console.log(currentDate.getFullYear()) // 2021
+
+        // Task:
+        // output this full message:
+        // The current time is 12:55:45
+        // we need to access the hours, minutes, and seconds 
+        console.log("The current time (HH:MM:SS) is: " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds());
+
+        // Task
+        // do the same thing for date:
+        console.log("Today date is: " + currentDate.getFullYear() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getDate());
+    </script>
+</body>
+
+</html>
