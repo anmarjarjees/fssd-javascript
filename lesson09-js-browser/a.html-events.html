@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+
+    <!-- Internal JavaScript -->
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <h2>JavaScript & HTML Events</h2>
+    <p>Feel free to click the big red buttons as often as you like!</p>
+    <!-- 
+        JS Events => Mouse Events:
+        - onclick or onClick
+        The onclick attribute specifies some script to run when the element is clicked.
+
+        Events are used to trigger any JS code
+
+        Below is an example of using inline JS
+     -->
+    <button onclick="alert('Hi there did miss me!');">Just Alert Message!</button>
+    <button onclick="myTimeAlert()">Give me Current time!</button>
+    <button onclick="countInConsole()">Counting in CONSOLE!</button>
+
+    <!-- we can add more JS lines inside onclick!! -->
+    <h3 onclick="let why = prompt('Why you clicked the heading?'); alert(why);">Basic Shapes</h3>
+    <p>You can click on any shape to find its area value.</p>
+    <ul>
+        <li>
+            <a href="#" onclick="circleArea()">Circle</a>
+        </li>
+        <li>
+            <a href="#" onclick="triangleArea()">Triangle</a>
+        </li>
+        <li>
+            <a href="#" onclick="squareArea()">Square</a>
+        </li>
+    </ul>
+
+
+
+    <!-- Internal JavaScript (Always come after writing all our HTML code, just before closing body tag)-->
+    <script>
+        // This function should only alert the current time:
+        function myTimeAlert() {
+            // to get the time => using the Date() object
+            let today = new Date(); // return the current date + current time
+
+            // I want to retrieve the time out of "today" date object
+            // you can check W3schools: https://www.w3schools.com/js/js_date_methods.asp
+            /*
+            getHours() => Get the hour (0-23)
+            getMinutes() =>	Get the minute (0-59)
+            getSeconds() =>	Get the second (0-59)
+            
+            Format: 10:10:55
+            */
+            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            alert("Hi! The time is now: " + time);
+        } // end function myTimeAlert()
+
+        // We don't want our function to be run automatically (Only when we click its button)
+        // myTimeAlert();
+
+        // a function to count and print from 1 to 10
+        function countInConsole() {
+            console.log("Watch me count to 10...");
+            for (let count = 1; count <= 10; count++) {
+                console.log(count);
+            }
+        }
+
+
+        function circleArea() {
+            /*
+            The formula: Area = π r2 => Area = PI x r x r
+            r = radius
+            */
+            // ask the user to enter the circle radius with prompt() method and save it into a variable
+            let radius = parseFloat(prompt("Enter the circle radius: "));
+            let area = Math.PI * radius * radius;
+            // another solution:
+            // let area = Math.Pi * Math.pow(radius, 2);
+            document.write("The area of the circle is:" + area);
+        }
+
+        // circleArea(); // we don't want to load the function automatically
+
+        function triangleArea() {
+            /*
+            The formula: Area = ½ × b × h
+            b = base
+            h = vertical height
+            */
+            alert('So you want to find the area value! Ok Good luck');
+            // Enjoy this task :-)
+        }
+
+        function squareArea() {
+            /*
+            The formula: Area = a2 OR a x a
+            a = length of side
+            */
+            alert('So you want to find the area value! Ok Good luck');
+            // Enjoy this task :-)
+        }
+    </script>
+
+    <!-- External JavaScript -->
+    <!-- 
+        We don't have this file
+        Error: Failed to load resource: net::ERR_FILE_NOT_FOUND
+    -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

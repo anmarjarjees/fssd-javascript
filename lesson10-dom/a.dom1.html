@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM</title>
+
+    <!-- Internal styles  -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 
+        - div a block level element
+        - span an inline element
+     -->
+    <div id="wrapper">
+        <header class="main">
+            <h1 id="head1">Document Object Model</h1>
+            <nav>
+
+            </nav>
+        </header>
+
+        <section id="content">
+            <p id="first">Here is my first paragraph</p>
+            <p>Here is my second paragraph</p>
+            <p>The result is: <span id="result"></span></p>
+            <!-- 
+                using inline JavaScript here: onclick mouse event 
+                we can attach our JS code to one of the HTML event attributes
+            -->
+            <p onclick="alert('so you clicked this paragraph!')">Don't click me</p>
+        </section>
+        <footer class="main">
+            Designed by me...
+        </footer>
+    </div>
+
+    <!-- 
+        We need to make sure that all the page elements are loaded before staring parsing them 
+        so we place our JS DOM code after loading the entire page (html elements) : 
+    -->
+    <!-- Internal JavaScript -->
+    <script>
+        /*
+        Document Object Model (DOM): It's a Browser API
+        
+        Application Programming Interface (API) is a computing interface which defines interactions 
+        between multiple software intermediaries.
+
+        DOM: Document Object Model
+        document represents this entire HTML page
+
+        JS can control the web page (document)
+     
+         DOM is for parsing all the web page content (HTML elements),
+         So we have to load or run our JS code after finishing loading the entire page 
+         and that's why we usually place our code at the end after all the HTML elements
+         (one of the main/major reasons)
+        */
+       
+    </script>
+</body>
+
+</html>

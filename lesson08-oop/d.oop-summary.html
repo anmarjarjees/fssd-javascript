@@ -158,6 +158,16 @@
         // now customizing our blueprint to accept arguments
         function Person2(fullName, favColor) {
             /*
+            The arguments object (Good to know!):
+            -------------------------------------
+            arguments is an Array-like object accessible inside functions 
+            that contains the values of the arguments passed to that function:
+            MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+            */
+            console.log("Function Arguments: " + arguments); //  [object Arguments]
+            console.log(arguments[0]); // Allen Smith
+            console.log(arguments[1]); // Yellow
+            /*
             this => steve then this.name  => Steve Allison
             We can't write the actual name "Steve Allison" as need to make this blueprint recyclable
             this => kate then this.name  => Kate Willson
@@ -172,7 +182,7 @@
             }
         }
 
-        var steve = new Person2("Steve Allison", "Yellow");
+        var steve = new Person2("Steve Allison", "c");
         var kate = new Person2("Kate Willson", "Red");
         var friend1 = new Person2("Will Smith", "Black");
         var friend2 = new Person2("Sam Simpson", "Blue");
