@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM 2</title>
+    <!-- Internal styles  -->
+    <style>
+        .blue-theme {
+            background-color: #e6f2ff;
+            border: 2px solid #00264d;
+            color: darkblue;
+        }
+
+        .red-theme {
+            background-color: #ffebe6;
+            border: 2px solid #661400;
+            color: darkred;
+        }
+
+        .blue-theme,
+        .red-theme {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Our Curries</h1>
+    <div class="menu-item">Vegetable Balti</div>
+    <div class="menu-item">Chicken Korma</div>
+    <div class="menu-item">Lamb Madras</div>
+
+    <h1>Our Drinks</h1>
+    <div>
+        We have all the types of hot and cold drinks
+    </div>
+
+    <h1>Our <span class="highlight">Delicious</span> Meals</h1>
+    <ul>
+        <li>Fish</li>
+        <li>Chicken</li>
+        <li>Beaf</li>
+    </ul>
+
+    <script>
+        // getting the elements by tag name
+        // the returned value of this method: HTMLCollectionOf<HTMLHeadingElement>
+        // we have 3 h1 elements (3 heading1):
+        let headings = document.getElementsByTagName("h1");
+        console.log(headings); // HTMLCollection(3)
+        /*
+        Collection is like an array
+        HTMLCollection(3)
+        0: h1
+        1: h1
+        2: h1
+        length: 3
+        */
+
+        /*
+        To review:
+        let myLetters =["A","B","C"];
+        myLetters[0] => "A"
+        */
+        // to output the information of the first h1 in the collection named "headings":
+        console.log("The first h1 in my HTML code: ", headings[0]); //  <h1>Our Curries</h1>
+
+        // to output the information of the second h1 in the collection named "headings":
+        console.log("The second h1 in my HTML code: ", headings[1]); //  <h1>Our Drinks</h1>
+
+        // to output the information of the third h1 in the collection named "headings":
+        console.log("The third h1 in my HTML code: ", headings[2]); //  <h1>Our Drinks</h1>
+
+        // sometimes we don't to retrieve the full element, only its content (not the tags):
+        // we can use innerText property, which returns the text from inside an element
+        console.log("The first h1 in my HTML code: ", headings[0].innerText);
+
+        // in case if the element content are text and html tags:
+        console.log("The last h1 in my HTML code: ", headings[2].innerHTML);
+
+        // more example:
+        // will take all the div element(s)
+        let divs = document.getElementsByTagName("div");
+        console.log(divs); // HTMLCollection(4) [div.menu-item, div.menu-item, div.menu-item, div]
+
+        // Getting elements by class name
+        let menu = document.getElementsByClassName("menu-item");
+        console.log(menu); // HTMLCollection(3) [div.menu-item, div.menu-item, div.menu-item]
+
+        // because HTMLCollection is just an array:
+        for (let i = 0; i < divs.length; i++) {
+            console.log(divs[i].innerText);
+        }
+
+        // For-Of Loops:
+        /*
+        We can use a for-of loop to easily get the actual element from the array
+        for (anyVariableName of ourArrayName) {
+            // our code for anyVariableName
+        }
+        */
+        for (let item of menu) {
+            console.log(item.innerText);
+        }
+
+        document.write("<ul>");
+        for (let item of menu) {
+            document.write("<li>" + item.innerText + "</li>");
+        }
+        document.write("</ul>");
+    </script>
+</body>
+
+</html>

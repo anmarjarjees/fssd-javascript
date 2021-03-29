@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM 3</title>
+    <!-- Internal styles  -->
+    <style>
+        .blue-theme {
+            background-color: #e6f2ff;
+            border: 2px solid #00264d;
+            color: darkblue;
+        }
+
+        .red-theme {
+            background-color: #ffebe6;
+            border: 2px solid #661400;
+            color: darkred;
+        }
+
+        .bw-theme {
+            background-color: #fff;
+            border: 2px solid #000;
+            color: 000;
+        }
+
+        .blue-theme,
+        .red-theme,
+        .bw-theme {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .blue {
+            background-color: rgb(3, 40, 95);
+            color: rgb(205, 218, 247);
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: rgb(80, 2, 2);
+            color: rgb(247, 160, 160);
+            cursor: pointer;
+        }
+
+        .bw {
+            background-color: rgb(250, 250, 250);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        - div a block level element
+        - span an inline element
+     -->
+    <div id="wrapper">
+        <header class="main">
+            <h1 id="head1">Document Object Model</h1>
+            <nav>
+
+            </nav>
+        </header>
+
+        <section id="content">
+            <p id="first">Here is my first paragraph</p>
+            <p>Here is my second paragraph</p>
+            <p>The result is: <span id="result"></span></p>
+            <p onclick="alert('you clicked this paragraph')">Don't click me!</p>
+        </section>
+
+        <form action="">
+            <!-- again below we are using inline JS -->
+            First Name:<br>
+            <!-- 
+                onfocus: 
+                when one some clicks "this" input field Or when the cursor inside this field
+                => "change its background to red" 
+
+                onblur:
+                when one some clicks outside "this" input field Or when the cursor outside this field
+                => "change its background to white" 
+            -->
+            <input type="text" id="first-name"
+                onfocus="document.getElementById('first-name').style.backgroundColor='red'" onblur="validate1(1)">
+
+            <br>
+            Last Name:<br>
+            <!-- 
+                Instead of using document.getElementById() to refer to this element
+                we can just use the keyword "this" to refer to this element
+             -->
+            <input type="text" id="last-name" onfocus="this.style.backgroundColor='red'" onblur="validate1(2)">
+
+            <br>
+            Email:<br>
+            <input type="email" id="email" onfocus="this.style.backgroundColor='red'" onblur="validate2(this)">
+
+            <br>
+            Phone:<br>
+            <input type="tel" id="phone" onfocus="this.style.backgroundColor='red'" onblur="validate2(this)">
+
+            <div>
+                <p id="error">
+                    <!-- The error/warning message will be displayed here if empty first or last name  -->
+                </p>
+            </div>
+
+            <div>
+                <p id="message">
+                    <!-- The error/warning message will be displayed here if empty email or phone -->
+                </p>
+            </div>
+            <!-- 
+    type="submit" => this will submit the form and run the HTML5 required validation attribute (if exists)
+    type="button" => this will NOT submit the form the required validation attribute will NOT work (if exists)
+ -->
+            <button type="button">Submit</button>
+        </form>
+
+        <hr>
+        <div>
+            <button class="blue" onclick="changeThemeColor(1)">Blue Theme</button>
+            <button class="red" onclick="changeThemeColor(2)">Red Theme</button>
+            <button class="bw" onclick="changeThemeColor(3)">B/W Theme</button>
+        </div>
+    </div>
+
+    <!-- 
+        We need to make sure that all the page elements are loaded before staring parsing them 
+        so we place our JS DOM code after loading the entire page (html elments) : 
+    -->
+    <!-- Internal JavaScript -->
+    <script>
+        function changeThemeColor(favColor) {
+            let wrapperDiv = document.getElementById("wrapper");
+            switch (favColor) {
+                case 1: // blue theme
+                    // we can just use teh property "className"!
+                    wrapperDiv.className = "blue-theme";
+                    break;
+
+                case 2: // red theme
+                    wrapperDiv.className = "red-theme"
+                    break;
+
+                // Notice that adding default statement in this example is useless
+                default:
+                    wrapperDiv.className = "bw-theme"
+
+            }
+        } // end changeThemeColor()
+
+
+        // this function will be triggered when we leave the current input box => onblur
+        // only for the first name and last name fields
+        function validate1(elementNumber) {
+            // for testing
+            console.log(elementNumber);
+
+            if (elementNumber == 1) {
+                let firstName = document.getElementById("first-name");
+                let error = document.getElementById("error");
+                // check if the first name is empty or not:
+                if (firstName.value == "" || firstName.value == null) {
+                    // we will put the curser inside the first-name field:
+                    firstName.focus();
+                    // document.getElementById("error").innerText = "Please enter your first name";
+                    error.innerText = "Please enter your first name";
+                } else {
+                    error.innerText = "";
+                    firstName.style.backgroundColor = '#fff';
+                }
+
+            } else {
+                let lastName = document.getElementById("last-name");
+                // check if the last name is empty or not:
+                if (lastName.value == "" || lastName.value == null) {
+                    // we will put the curser inside the last-name field:
+                    lastName.focus();
+                    // document.getElementById("error").innerText = "Please enter your last name";
+                    error.innerText = "Please enter your last name";
+                } else {
+                    error.innerText = "";
+                    lastName.style.backgroundColor = '#fff';
+                }
+            }
+        } // end validate1()
+
+
+        // General function with any field:
+        // Example for the first name:
+        // the parameter "currentElement" can be:
+        // <input type="email" id="email" ....
+        // <input type="tel" id="phone" ....
+        function validate2(currentElement) {
+            // for testing:
+            console.log(currentElement);
+            let message = document.getElementById("message");
+            if (currentElement.value == "" || currentElement.value == null) {
+                currentElement.focus();
+                message.innerText = "this field is required";
+            } else {
+                message.innerText = "";
+                currentElement.style.backgroundColor = '#fff';
+            }
+        } // end validate2()
+    </script>
+</body>
+
+</html>

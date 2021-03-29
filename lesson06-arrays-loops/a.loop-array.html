@@ -124,6 +124,27 @@
         document.write("</ul>");
         // using do while loop:
         // you can try it :-)
+
+
+
+        // One more modern example of using for loop:
+        // For-Of Loops:
+        /*
+        We can use a for-of loop to easily get the actual element from the array
+        for (anyVariableName of ourArrayName) {
+            // our code for anyVariableName
+        }
+        */
+        for (sport of sports) {
+            console.log(sport);
+        }
+
+        document.write("<ul>");
+        for (sport of sports) {
+            document.write("<li>" + sport + "</li>");
+        }
+        document.write("</ul>");
+
     </script>
 
 
