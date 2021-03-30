@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom With Forms Part 1</title>
+</head>
+
+<body>
+    <div id="main-content">
+        <h1 id="first">Simple Calculations</h1>
+        <form id="main-form">
+            Input your numbers with spaces in between:
+            <!-- 
+                notice that we added the "required" attribute 
+                required attribute works only with type="submit"
+                required attribute doesn't work with type="button"
+            -->
+            <input type="text" id="numbers" size="30" maxlength="45" required>
+            <br><br>
+            <!-- inline JS (no event listener) -->
+            <!-- 
+                Solution 1: type="button" 
+                For learning purposes (Not Screen readers ) => we added the title attribute
+            -->
+            <input type="button" title="This submit is input element of type button" value="Submit1"
+                onclick="findTotal();">
+            <br><br>
+            <!-- 
+                type="submit":
+                - the from can be submitted to the sever 
+                - the browser will refresh the page
+             -->
+            <button type="submit" title="This submit is button element of type submit"
+                onclick="findTotal();">Submit2</button>
+            <br><br>
+
+            <input type="submit" title="This submit is input element of type submit" value="Submit3"
+                onclick="findTotal();">
+
+        </form>
+        <p>The total of your numbers: <span id="result"></span>. <span id="average"></span></p>
+
+    </div>
+    <!-- Internal JS: -->
+    <script>
+        // create a function to be called when the use submit his/her numbers:
+        function findTotal() {
+            // for testing:
+            console.log("function is working!");
+
+            // For your assignment:
+            // The user input will be just a text (string ) of numbers, why?
+            // Because: HTML form input field convert the user input to text type="text" 
+            // To get input value of <input> element, we can use ".value" DOM property of any form element:
+            // I put the name inputDataStr => input data of string data type
+            let inputDataStr = document.getElementById("numbers").value;
+            // testing:
+            console.log(inputDataStr); // will display the input values
+            console.log(typeof (inputDataStr)); // show us the data type: string
+
+            // in case if the user puts spaces after or before the numbers
+            // we need to use the string javascript method "trim()" to remove the leading and trailing Whitespace:
+            // The trim() method removes whitespace from both sides (left and right side) of a string.
+            // Important Note: The trim() method does not change the original string.
+            // So we can trim our string and return/assign the value to the same string
+            inputDataStr = inputDataStr.trim();
+            // testing:
+            console.log(inputDataStr);
+
+
+
+            // the returned data type of the input text box is a "string"
+            // we need to convert this string into an array first:
+            // using split() string method to split the string letters into an array
+            // split() method (function) needs one parameter which is the delimiter
+
+            /*
+            // NOTE:
+            // The split() method is used to split a string into an array of substrings, 
+            // and returns the new array.
+            */
+
+            // because split() method returns an array so we can save it into a new variable "inputDataArray"
+            // W3School link: https://www.w3schools.com/jsref/jsref_split.asp
+            let inputDataArray = inputDataStr.split(" ");
+            // testing:
+            console.log(inputDataArray); // (6) ["10", "12", "22", "7", "9", "11"]
+
+            /*
+            Problem: The user might insert/type extra space in between every two numbers
+            
+            To avoid this problem, you can use a for loop to loop through the array with if condition to create a new temporary array:
+            If the current element of the array is NOT empty/space => push it to the new temp array
+            By the end of this loop => we will have the new generated array without any spaces
+
+            Optional Task: 
+            To remove the spaces in between
+            Using 
+            */
+            var total = 0;
+            for (var i = 0; i < inputDataArray.length; i++) {
+                // testing:
+                // console.log(inputDataArray[i]);
+                total += parseFloat(inputDataArray[i]);
+            }
+            console.log(total);
+        } // end findTotal()
+    </script>
+</body>
+
+</html>

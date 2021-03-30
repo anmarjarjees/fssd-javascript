@@ -73,9 +73,10 @@
             <p onclick="alert('you clicked this paragraph')">Don't click me!</p>
         </section>
 
-        <form action="">
+        <form action="" method="">
             <!-- again below we are using inline JS -->
             First Name:<br>
+            <!-- Inline JavaScript -->
             <!-- 
                 onfocus: 
                 when one some clicks "this" input field Or when the cursor inside this field
@@ -102,7 +103,11 @@
 
             <br>
             Phone:<br>
-            <input type="tel" id="phone" onfocus="this.style.backgroundColor='red'" onblur="validate2(this)">
+            <!-- 
+                Notice the required HTML5 attribute will not work if the submit button 
+                has the value of "button" instead of "submit"
+             -->
+            <input type="tel" id="phone" onfocus="this.style.backgroundColor='red'" required onblur="validate2(this)">
 
             <div>
                 <p id="error">
@@ -116,8 +121,9 @@
                 </p>
             </div>
             <!-- 
+                Very Important Note:
     type="submit" => this will submit the form and run the HTML5 required validation attribute (if exists)
-    type="button" => this will NOT submit the form the required validation attribute will NOT work (if exists)
+    type="button" => this will NOT submit the form, the required validation attribute will NOT work (if exists)
  -->
             <button type="button">Submit</button>
         </form>
@@ -132,8 +138,9 @@
 
     <!-- 
         We need to make sure that all the page elements are loaded before staring parsing them 
-        so we place our JS DOM code after loading the entire page (html elments) : 
+        so we place our JS DOM code after loading the entire page (html elements) : 
     -->
+
     <!-- Internal JavaScript -->
     <script>
         function changeThemeColor(favColor) {

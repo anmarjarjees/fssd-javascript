@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model - DOM 4</title>
+    <!-- Internal styles  -->
+    <style>
+        .blue-theme {
+            background-color: #e6f2ff;
+            border: 2px solid #00264d;
+            color: darkblue;
+        }
+
+        .red-theme {
+            background-color: #ffebe6;
+            border: 2px solid #661400;
+            color: darkred;
+        }
+
+        .bw-theme {
+            background-color: #fff;
+            border: 2px solid #000;
+            color: 000;
+        }
+
+        .blue-theme,
+        .red-theme,
+        .bw-theme {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .blue {
+            background-color: rgb(3, 40, 95);
+            color: rgb(205, 218, 247);
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: rgb(80, 2, 2);
+            color: rgb(247, 160, 160);
+            cursor: pointer;
+        }
+
+        .bw {
+            background-color: rgb(250, 250, 250);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 
+        - div a block level element
+        - span an inline element
+
+        here we are applying the blue-theme class 
+        to be the default theme to be presented before clicking any buttons
+     -->
+    <div id="wrapper" class="blue-theme">
+        <header class="main">
+            <h1 id="head1">Add Event Listener</h1>
+            <nav>
+
+            </nav>
+        </header>
+
+        <section id="content">
+            <p id="first">Here is my first paragraph</p>
+            <p>Here is my second paragraph</p>
+            <p>The result is: <span id="result"></span></p>
+            <!-- 
+                Task:
+                when someone clicks this p element with the text "Don't click me":
+                we want to call a function that alerts "You clicked this paragraph!!!"
+                
+                Adding Event Handler as an HTML attribute => onclick="alertMsg()"
+                
+                NOTE: The other way of using "Event Handler" without writing inline JS:
+                We can give this p an id to be used with the method getElementById()
+            -->
+            <p id="do-not">Don't click me</p>
+        </section>
+        <div>
+            <!-- 
+                Adding event listener:
+             -->
+            <button class="blue" id="blueBtn">Blue Theme</button>
+            <button class="red" id="redBtn">Red Theme</button>
+            <!-- 
+                OR: instead of using button element, we can use input of type "button" 
+            -->
+            <input type="button" class="bw" id="bwBtn" value="B/W Theme">
+        </div>
+        <footer class="main">
+            Designed by me...
+        </footer>
+    </div>
+
+    <!-- 
+        We need to make sure that all the page elements are loaded first before start parsing them 
+        so we place our JS DOM code after loading the entire page (html elements) : 
+    -->
+
+    <!-- Internal JavaScript -->
+    <script>
+        function alertMsg() {
+            alert("You clicked this paragraph!!!");
+        }
+
+        // Adding "Event Handler" inside our script instead of adding them as attribute
+        // Note that you don't use the "on" prefix for the event; use "click" instead of "onclick"
+        document.getElementById("do-not").onclick = alertMsg;
+
+        // Another way of coding:
+        // Optional to create a variable "doNotPara" or just use the full syntax
+        // let doNotPara = document.getElementById("do-not");
+        // doNotPara.getElementById("do-not").onclick = alertMsg;
+
+        // Instead of just using document.getElementById()
+        // Let's try to save them into variables:
+        // Select the three buttons: blue, red, and BW:
+        let blueBtn = document.getElementById("blueBtn");
+        let redBtn = document.getElementById("redBtn");
+        let bwBtn = document.getElementById("bwBtn");
+
+        // Assign the required event listener to each button
+        /*
+        JavaScript HTML DOM EventListener
+        Method: addEventListener()
+        addEventListener(argument1, argument2)
+        argument1 = the name of the event, examples: "click", "mouseover", "mouseout", ....
+        argument2 = our own function that we want to run/trigger or other JS code we want to run
+        
+        Notice that argument2 could be:
+        - the name of our function without ()
+        - it could be the function block itself [Anonymous Function]
+
+        W3Schools: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+        */
+
+        // This function "blueTheme()" is to be called with the event click [Event Listener]
+        function blueTheme() {
+            /*
+            When someone clicks the "Blue Theme":
+            We want to apply class="blue-theme" to the div#wrapper
+            */
+            document.getElementById("wrapper").className = "blue-theme";
+
+            // Or you can use this way:
+            /*
+            let wrapperDiv = document.getElementById("wrapper");
+            wrapperDiv.className = "blue-theme";
+            */
+        }
+
+        function redTheme() {
+            /*
+            When someone clicks the "Red Theme":
+            We want to apply class="red-theme" to the div#wrapper
+            */
+            document.getElementById("wrapper").className = "red-theme";
+        }
+
+        blueBtn.addEventListener("click", blueTheme);
+        // we can run this code by calling our function named "redTheme" as we did with blueTheme
+        redBtn.addEventListener("click", redTheme);
+
+        // Now with the bwButton will write and run our function instantly at the same time
+        // Just write the entire function block inside the event listener
+        // An anonymous function is a function that was declared without any named identifier to refer to it. 
+        // As such, an anonymous function is usually not accessible after its initial creation.
+
+        // This function can accept the event itself as argument ?!?!?!?!?! 
+        // For learning purpose
+        // let's add a parameter named "e" just to represent the Mouse event object (as argument)
+        // Please notice that in this function adding "e" is optional!
+        // We just added e to learn about the fact of getting the event properties
+        bwBtn.addEventListener("click", function (e) {
+            // we can write our function code here!
+            document.getElementById("wrapper").className = "bw-theme";
+            // for testing:
+            console.log(e);
+        });
+
+        /*
+        Besides W3School :-)
+        you can read more about this topic:
+        https://www.tutorialrepublic.com/javascript-tutorial/javascript-event-listeners.php
+        */
+    </script>
+</body>
+
+</html>
