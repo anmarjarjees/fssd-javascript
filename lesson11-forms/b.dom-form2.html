@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom With Forms Part 2</title>
+</head>
+
+<body>
+    <form>
+        Enter your numbers:*
+        <!-- 
+            HTML NOTES about "required" attribute field validation:
+            - Please remember that you type the full attribute required="required" or just type required
+            - Only works when the form is submitted (type="submit")
+            - Notice that return false will prevent the from from being submitted
+            - You can use the title attribute just to give a hint about any input field
+
+            If you want to customize the HTML warning message:
+            https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+         -->
+        <input type="text" id="numbers" title="Please input your numbers with spaces">
+        <br>Please Select your operation:<br>
+        <!-- 
+            we used value="*" so we will get this symbol "*" if the user clicks mul radio button
+            we used value="/" so we will get this symbol "/" if the user clicks div radio button
+
+            you as programmer, you can choose:
+            value="1" for mul
+            value="2" for div
+            value="3" for count
+            Or
+            value="m" for mul
+            value="d" for div
+            value="c" for count
+         -->
+        <input type="radio" id="mul" name="op" checked value="1">Multiply all numbers<br>
+        <input type="radio" id="div" name="op" value="2">Divide all numbers<br>
+        <input type="radio" id="ctn" name="op" value="3">Count how many numbers
+        <div>
+            <!-- 
+                Two options:
+                - either using type="submit" to have the "required" attribute working
+                - or using type="button" but the "required" attribute will not work (you can write your JS)
+
+                Also we can use Event Handler or Event Listener:
+                We used Event Listener
+             -->
+            <!-- <input type="submit" value="Calculate" onclick="findResult();"> -->
+            <button type="button" onclick="findResult();">Calculate</button>
+            <input type="reset" value="Clear Numbers">
+        </div>
+    </form>
+
+    <div>The result: <span id="result"></span></div>
+
+    <!-- for practice, let's create an external js file [like your assignment] -->
+    <script src="js/dom-from2-script.js"></script>
+</body>
+
+</html>

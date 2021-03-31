@@ -11,6 +11,11 @@
 <body>
     <div id="main-content">
         <h1 id="first">Simple Calculations</h1>
+        <!-- 
+            the form elements doesn't have:
+            - method
+            - action
+         -->
         <form id="main-form">
             Input your numbers with spaces in between:
             <!-- 
@@ -22,28 +27,57 @@
             <br><br>
             <!-- inline JS (no event listener) -->
             <!-- 
-                Solution 1: type="button" 
+                Solution 1: button element with type="button" 
                 For learning purposes (Not Screen readers ) => we added the title attribute
             -->
             <input type="button" title="This submit is input element of type button" value="Submit1"
                 onclick="findTotal();">
             <br><br>
+            <!-- Solution 2: for button element with type="submit"  -->
             <!-- 
-                type="submit":
-                - the from can be submitted to the sever 
-                - the browser will refresh the page
-             -->
+            type="submit":
+            - the from can be submitted to the server 
+            - the browser will refresh the page
+          
+            we can create a button using: <button> with type="submit"
+            In such case, we need to use return false to prevent the from from being submitted 
+            to the same page since there is no action attribute.
+            If the form is submitted to the page, the page will be reloaded (refreshed)
+            ==> refresh the page means clear everything 
+
+            First way to fix the issue with type="submit", doing these two steps: 
+            - We put onclick "return findTotal();" 
+            - We add return false at the end of our function also
+            -->
             <button type="submit" title="This submit is button element of type submit"
-                onclick="findTotal();">Submit2</button>
+                onclick="return findTotal();">Submit2</button>
             <br><br>
 
+            <!-- Solution 3: Or: for input element with type="submit"  -->
+            <!-- 
+                if you don't want to change your function or adding anything extra to your function
+                like "return false"
+                like we don't want to add "return false" as the first way, you can use this second way:
+
+                Second way: by adding return false to the "onclick" event:
+                onclick="findTotal(); return false"    
+                
+                Two Important Notes:
+                1. With this way we don't need to add the statement "return false" at the end of our function
+                because we put it here: return false
+                2. Be careful that adding "return false" to onclick event below will disable the required attribute
+                even if we are using input of type="submit" because return false will prevent the form 
+                from being submitted so "required" attribute will be useless
+             -->
             <input type="submit" title="This submit is input element of type submit" value="Submit3"
-                onclick="findTotal();">
-
+                onclick="findTotal(); return false">
+            <br><br>
+            <!-- Solution 4: you can try it (Event Listener): Enjoy it :-) -->
         </form>
-        <p>The total of your numbers: <span id="result"></span>. <span id="average"></span></p>
-
+        <p>The total of your numbers: <span id="total"></span></p>
+        <p>The average of your numbers: <span id="average"></span></p>
     </div>
+
     <!-- Internal JS: -->
     <script>
         // create a function to be called when the use submit his/her numbers:
@@ -90,23 +124,94 @@
             console.log(inputDataArray); // (6) ["10", "12", "22", "7", "9", "11"]
 
             /*
-            Problem: The user might insert/type extra space in between every two numbers
+            Three Problems [Very Important Step for your major assignment]:
+            ==========================================================
+
+            1 Problem with converting string to array using split():
+            - the values will string data type: ["10", "12", "22", "7", "9", "11"]
+            - changing all the values to numeric data type: [10, 12, 22, 7, 9, 11]
+            To be able to find the total of these numbers not concatenating them!
+            we can fix only this problem => parseFloat(inputDataArray[i]) with the formula
+
+            2 Problems by the user: 
+            - The user might insert/type extra space in between every two numbers
+            - The user might insert/type other characters instead of just numeric values
             
-            To avoid this problem, you can use a for loop to loop through the array with if condition to create a new temporary array:
+            To avoid/fix these 3 problems all at once, 
+            you can use a for loop to loop through the array 
+            with if condition to create a new array that contains only numbers and no spaces:
             If the current element of the array is NOT empty/space => push it to the new temp array
             By the end of this loop => we will have the new generated array without any spaces
 
-            Optional Task: 
-            To remove the spaces in between
-            Using 
+           
             */
+
+            /*
+            // Our old basic code:
             var total = 0;
             for (var i = 0; i < inputDataArray.length; i++) {
                 // testing:
                 // console.log(inputDataArray[i]);
                 total += parseFloat(inputDataArray[i]);
             }
-            console.log(total);
+            */
+
+            /*
+            Solution for the 3 problems:
+            - numbers are string datatype
+            - we might have more than one space in between every two numbers
+            - we might have letters/characters also besides numbers
+
+            Invalid Input: ["10", "", "", "", "22", "7", "abc", "11"]
+            convert this array that contains invalid input to: [10,22,7,11]
+            */
+
+            /*
+            this for loop will be used to generate a new array with only numeric values:
+            before staring our loop, let's declare our new "empty array": numericArray
+            we will populate this array with the valid values 
+            from our original array "inputDataArray" through our loop using if condition
+            */
+            let numericArray = [];
+            // the loop variable "i" will represent the array index => starting from 0
+            // looping through the original array and check/scan every element
+            // if the current element is not a space AND is numeric/number => add it to the numericArray
+
+            for (var i = 0; i < inputDataArray.length; i++) {
+                // if it's (NOT isNaN) and it's not an empty value
+                if (!isNaN(inputDataArray[i]) && inputDataArray[i] != "") {
+                    // finally we need to push the value as numeric data type:
+                    // parseInt() => works only with integer
+                    // parseFloat() => works with both integer or float
+                    // Number() =>  works with both integer or float
+                    // Nesting the functions: 
+                    numericArray.push(parseFloat(inputDataArray[i]));
+                }
+            }
+            console.log(numericArray);
+
+            // find the total of all the numbers in this array:
+            var total = 0;
+            for (var i = 0; i < numericArray.length; i++) {
+                total += numericArray[i];
+            }
+
+            document.getElementById("total").innerText = total;
+
+            // the average of any list of numbers:
+            // dividing the total of numbers / how many numbers:
+            let average = total / numericArray.length;
+
+            document.getElementById("average").innerHTML = "<em>" + average + "</em>";
+            // Please be advised that we don't need to use return false if type="button"
+            // we only need it when type="submit"
+            // return false will prevent my form from being submitted: 
+            // Notice that we need this statement only for the second solution
+            return false;
+
+            // just for learning, any code we write after return will not be executed
+            // alert("any kind of random funny things");
+            // alert("Why I am not working!");
         } // end findTotal()
     </script>
 </body>
