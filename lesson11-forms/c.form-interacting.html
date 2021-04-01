@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacting with Form</title>
+</head>
+
+<body>
+    <h2>Please fill the form</h2>
+    <!-- 
+        For the backend programmer:
+        - action => the file that will handle the form
+        - method => GET (Search/Getting info from DB) OR POST (Send the information)
+
+        Below we are using:
+        - name
+        - id
+        We will use them with JS
+     -->
+    <form id="main-form" name="mainForm">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div>
+                Full Name:*
+                <!-- 
+                The attribute "name":
+                - can be used with JS DOM
+                - will be used by PHP/Python developers  
+                - Each field has a unique name value 
+                (radio button and checkboxes are grouped with a unique name)
+
+                autocomplete="off" => it's "on" by default
+                The autocomplete attribute specifies 
+                whether or not an input field should have autocomplete enabled.
+                Autocomplete allows the browser to predict the value. 
+                When a user starts to type in a field, 
+                the browser should display options to fill in the field, based on earlier typed values.
+            -->
+                <input type="text" id="full-name" maxlength="50" autocomplete="off" name="fullName"
+                    placeholder="Full Name">
+            </div>
+
+            <div>
+                Email:
+                <input type="email" id="email" maxlength="50" name="email" autocomplete="off"
+                    placeholder="info@example.com">
+            </div>
+
+            <div>
+                Gender:
+                <br>
+                <!--  
+                    for JS and PHP/Python developers, they need to know which radio button
+                    or which checkbox has been selected:
+                    so we have to add this attribute: "value"
+                    each form control (radio, checkbox) has to have a unique "value"
+                -->
+                <input type="radio" name="gender" id="male" checked value="m">
+                <label for="male">Male</label>
+                <!-- <br /> or <br> -->
+                <br>
+                <input type="radio" name="gender" id="female" value="f">
+                <label for="female">Female</label>
+            </div>
+        </fieldset>
+        <div>
+            <!-- 
+                Event Handler
+                remember in between onlclick quotes we can write pure JS code: Inline JavaScript 
+
+                You can use Event Listener (refer to our previous lectures)
+            -->
+            <input type="button" value="Submit" onclick="userInfo();">
+
+            <!-- We can also use the following code with PHP/Python module -->
+            <!--  
+                    <button type="submit" onclick="userInfo()">Submit</button>
+            -->
+            <input type="reset" value="Clear">
+        </div>
+    </form>
+
+    <div>
+        Full Name: <span id="full_name"></span>
+        <br>
+        Email: <span id="email_address"></span>
+        <br>
+        Gender: <span id="gen"></span>
+        <p id="thanks"></p>
+    </div>
+
+    <script>
+        function userInfo() {
+            /*
+               Using JS DOM to get the values that the user has put in the form:            
+            */
+
+            // Using our classical way "getElementById()"
+            // To review => using getElementById()
+            // var fullName = document.getElementById("full-name").value;
+            // console.log(fullName);
+            // and the same for email:
+            // var email = document.getElementById("email").value;
+            // console.log(email);
+
+            // But in this lesson I want to show you another way that you can use for your assignment:
+            // Save the entire form:
+            // since our form element has the attribute name="mainForm"
+            // we can use this syntax: document.nameAttributeValue
+            // any form element that has the attribute name="anyValue" we can get this element:
+            // This document object with its property "mainFrom" => document.mainForm;
+            console.log(document.mainForm); // output all the form elements
+
+            // myFrom variable will contain the entire form elements!
+            var myForm = document.mainForm;
+
+            // for testing:
+            console.log(myForm); // output all the form elements
+            console.log(myForm.fullName); // will output the entire element
+            /*
+            <input type="text" id="full-name" maxlength="50" autocomplete="off" name="fullName"
+                placeholder="Full Name">
+            */
+            console.log(myForm.email); // will output the entire element
+            /*
+           myForm.fullName ==> return the entire form element as one object
+           myForm.email ==> return the entire form element as one object
+
+           we don't need the entire form element as an object,
+           we just need its value: myForm.fullName.value  
+           myForm.email.value
+           */
+
+            let fullName = myForm.fullName.value;
+            // console.log(fullName); // alex chow 
+
+            /*
+            Remember that our form doesn't have type="submit" => we cannot use required attribute
+            The HTML 5 required attribute works only with type="submit"
+
+            We will write our validation to check if the Full name field is empty 
+            */
+            /*
+             if (fullName) {
+                 // my code if fullName has any value:
+                 alert("Good Job!");
+             } else {
+                 alert("Please enter your full name!");
+             }
+            */
+
+            // the other way
+            if (fullName == null || fullName == "") {
+                alert("Please enter your full name!");
+            } else {
+                // my code if fullName has any value:
+                // if the user inputs their full name, 
+                // then we can take their email address + their gander:
+
+                // We can write this long statement:
+                // let email = document.mainForm.email.value;
+                // but we already saved "document.mainForm" into a JS variable "myForm"
+                let email = myForm.email.value;
+
+                // we can output/print the full name and email information into our document:
+                // using innerHTML or innerText
+                document.getElementById("full_name").innerText = fullName;
+                document.getElementById("email_address").innerText = email;
+
+                // To review: getElementById() with checked
+                /*
+                if (document.getElementById("male").checked) {
+                    console.log("Thank you Mr. " + fullName);
+                } else {
+                    console.log("Thank you Ms. " + fullName);
+                }
+                */
+
+                // Using our current way: with "name" attribute
+                // name="gender"
+                if (myForm.gender.value == "m") {
+                    document.getElementById('thanks').innerHTML = "<em>Thank you Mr. " + fullName + "</em>";
+                    document.getElementById('gen').innerHTML = "Male";
+                } else {
+                    document.getElementById('thanks').innerHTML = "Thank you Ms. " + fullName;
+                    document.getElementById('gen').innerHTML = "Female";
+                } // end female else
+            } // end main else
+        } // end userInfo()
+    </script>
+</body>
+
+</html>
