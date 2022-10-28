@@ -9,46 +9,50 @@
 </head>
 
 <body>
-    <script>
-        // To recap: one dimensional array
-        let oneDimensionalArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-        // I want to output the 'd':
-        console.log(oneDimensionalArray[3]); // d
+  <!-- All JavaScript Code has to be enclosed (surrounded) by script element -->
+<script>
+// To recap: one dimensional array
+let oneDimensionalArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+// I want to output the fourth item/element 'd':
+console.log(oneDimensionalArray[3]); // d
+
+// Multidimensional Arrays (2 dimensions) =>2 arrays:
+/*
+     var my2DArray = [ array1, array2, array3, ...  ];
+
+     array1 = [ value1, value2, value3 ]
+     array2 = [ value1, value2, value3 ]
+     array3 = [ value1, value2, value3 ]
+ */
 
 
-        // Multidimensional Arrays (2 dimensions) =>2 arrays:
-        /*
-           var my2DArray = [ array1, array2, array3, ...  ];
-           
-           array1 = [ value1, value2, value3 ]
-           array2 = [ value1, value2, value3 ]
-           array3 = [ value1, value2, value3 ]
-       */
+/*
+twoDimensionalArray = [ list the elements of this array ]
+twoDimensionalArray = [ element1, element2, element3 ]
+element1 = ["a", "b", "c"]
+element2 = ["d", "e", "f"]
+element3 = ["g", "h", "i"]
+*/
+let twoDimensionalArray = [
+  ["a", "b", "c"],
+  ["d", "e", "f"],
+  ["g", "h", "i"]
+];
+console.log(twoDimensionalArray);
 
-        /*
-        twoDimensionalArray = [ list the elements of this array ]
-        twoDimensionalArray = [ element1, element2, element3 ]
-        element1 = ["a", "b", "c"]
-        element2 = ["d", "e", "f"]
-        element3 = ["g", "h", "i"]
-        */
-        let twoDimensionalArray = [
-            ["a", "b", "c"],
-            ["d", "e", "f"],
-            ["g", "h", "i"]
-        ];
-        console.log(twoDimensionalArray);
+// I want to output the 'd' from this array "twoDimensionalArray":
+console.log(twoDimensionalArray[3]); // undefined => because this array has only 3 indices: 0,1,2
 
-        // I want to output the 'd' from this array "twoDimensionalArray":
-        console.log(twoDimensionalArray[3]); // undefined => because this array has only 3 indices: 0,1,2
+console.log(twoDimensionalArray[1]); // Array(3) => ["d", "e", "f"]
 
-        console.log(twoDimensionalArray[1]); // Array(3) => ["d", "e", "f"]
+// [1] => will target the second element
+// ["d", "e", "f"] => d has the index of 0
+console.log(twoDimensionalArray[1][0]); // d
 
-        // [1] => will target the second element 
-        // ["d", "e", "f"] => d has the index of 0
-        console.log(twoDimensionalArray[1][0]); // d
+// Task: print the letter "g"
+console.log(twoDimensionalArray[2][0]);
 
-        // var myArray = [ [val1, val2, val3], [val4, val5, val6] ]; 
+        // var myArray = [ [val1, val2, val3], [val4, val5, val6] ];
         // write it in one/multiple line(s):
         /*
         FSSD Modules:
@@ -91,7 +95,7 @@
         console.log(myReturnedKeyword2);
 
         // We used 2 dim array:
-        // using ' or double " 
+        // using ' or double "
         var modules = [
             ['module1', 'HTML', '1 Week'],
             ['module2', 'CSS', 'Weeks'],

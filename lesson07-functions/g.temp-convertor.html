@@ -37,7 +37,7 @@
          2: to convert the temperature from Celsius to Fahrenheit
          `);
         // prompt() convert: 1 to "1" or 2 to "2"
-        // as programmers we can use parseInt() or we can keep it as a string 
+        // as programmers we can use parseInt() or we can keep it as a string
         // but we need to keep them as string with case statements:
 
 
@@ -48,7 +48,7 @@
 
 
 
-        /* 
+        /*
         isNaN() => returns boolean data type
         isNaN() => returns "true" if the value is Not a Number
         isNaN() => returns "false" if the value is a Number
@@ -65,12 +65,12 @@
         console.log(isNaN(y)); // false => NO because "100" has a number so it's false
         console.log(isNaN(z)); // true => Yes "abc" is not a number
         console.log(isNaN(a)); // false => isNan() treats the boolean as numbers
-        console.log(isNaN(b)); // false 
+        console.log(isNaN(b)); // false
         console.log(isNaN(c)); // false => No -2 is a negative number
         console.log(isNaN(d)); // false => No 0 is a negative number
 
         // Task 2: Ask (prompt) the user to input their value
-        // here let's try to validate the user's temperature value: is it a number? 
+        // here let's try to validate the user's temperature value: is it a number?
         /*
         We want to ask the user to input the temperature as a number
         if the user doesn't type/input a valid numeric value
@@ -101,20 +101,20 @@
         do {
             // in JS we should use either let or var to declare/initialize a new variable
             temp = parseFloat(prompt("Enter your temperature numeric value:"));
-            /*  
+            /*
             NOTE: using let will give us an error:
             let temp = parseFloat(prompt("Enter your temperature numeric value:"));
             Error:  temp is not defined
 
-            Solution: 
+            Solution:
             with let keyword => we have to declare the variable before the loop block
             */
             // Keep asking while (the temp value is NOT numeric value)
-            // The isNaN() built-in JS function 
+            // The isNaN() built-in JS function
             // determines whether a value is an illegal number (Not-a-Number).
 
             // for testing:
-            console.log(temp); // check the value of temp varaible            
+            console.log(temp); // check the value of temp varaible
         } while (isNaN(temp))
 
         // Or using while() loop
@@ -146,8 +146,8 @@
         // 2. convert C to F => accepts a numric value in C ==> returns the value in F
 
         // this function requires the the feh value for the formula
-        // let's name the function parameter to be "fTemp" for Feh Temperature 
-        function convertFehToCel(fTemp) {
+        // let's name the function parameter to be "fTemp" for Feh Temperature
+        function convertFahToCel(fTemp) {
             // For testing:
             // alert(fTemp);
 
@@ -162,7 +162,7 @@
 
 
         // this function requires the the cel value for the formula
-        function convertCelToFeh(cTemp) {
+        function convertCelToFah(cTemp) {
             // For testing:
             // alert(cTemp);
 
@@ -194,7 +194,7 @@
                 // for test:
                 // alert("Your choice is 1");
                 // call our function to convert F to C
-                result = convertFehToCel(temp);
+                result = convertFahToCel(temp);
                 document.write("<p> the Cel temp is: " + result + "</p>");
                 break;
             case "2":
@@ -202,7 +202,7 @@
                 // for test:
                 // alert("Your choice is 2");
                 // call our function to convert C to F
-                result = convertCelToFeh(temp);
+                result = convertCelToFah(temp);
                 document.write("<p> the Feh temp is: " + result + "</p>");
                 break;
             default:
